@@ -14,11 +14,37 @@ $(document).ready(function () {
         $("#div-internet-connection").css("background-color", "#ec8787");
     }*/
 
-    localStorage.setItem('latitud', 0);
-    localStorage.setItem('longitud', 0);
+    $("#txtfechaVencimiento").datepicker({ minDate: new Date() });
 
     cargar_niveles();
     cargarDeptos();
+
+    $("#txtId").val(localStorage.getItem('id'));
+    $("#txtTitulo").val(localStorage.getItem('titulo'));
+    $("#selectTipo").val(localStorage.getItem('tipo'));
+    $("#txtDescripcion").val(localStorage.getItem('descripcion'));
+    $("#selectVacantes").val(localStorage.getItem('numVacantes'));
+    $("#txtCargo").val(localStorage.getItem('cargo'));
+    $("#selectSalario").val(localStorage.getItem('salario'));
+    $("#selectExperiencia").val(localStorage.getItem('experiencia'));
+    $("#select_nivel").val(localStorage.getItem('nivel'));
+    $("#txtProfesion").val(localStorage.getItem('profesion'));
+    $("#selectDepartamentos").val(localStorage.getItem('departamento'));
+    $("#selectMunicipios").val(localStorage.getItem('municipio'));
+    $("#txtfechaPublicacion").val(getEndDate(localStorage.getItem('fechaPublicacion')));
+    $("#txtfechaVencimiento").val(getEndDate(localStorage.getItem('fechaVencimiento')));
+    $("#txtDireccion").val(localStorage.getItem('direccion'));
+    $("#txtCorreo").val(localStorage.getItem('correo'));
+    $("#selectIndicativo").val(localStorage.getItem('indicativo'));
+    $("#txtTelefono").val(localStorage.getItem('telefono'));
+    $("#txtCelular").val(localStorage.getItem('celular'));
+
+    if (localStorage.getItem('latitud') != 0 && localStorage.getItem('longitud') != 0) {
+        setTimeout(function () {
+            InitializeEdit(localStorage.getItem('latitud'), localStorage.getItem('longitud'));
+            $("#divMap").css("display", "block");
+        }, 500);
+    }
 });
 
 $(function() {
@@ -82,6 +108,35 @@ function InitializeReg(lat, lon) {
     });
 }
 
+function InitializeEdit(lat, lon) {
+
+    google.maps.visualRefresh = true;
+    var cityCenter = new google.maps.LatLng(lat, lon);
+
+    var mapOptions = {
+        zoom: 14,
+        center: cityCenter,
+        mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+    };
+
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+    var myLatlng = new google.maps.LatLng(lat, lon);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map
+    })
+
+    marker.setIcon('images/marker.png');
+    markersArray.push(marker);
+
+    google.maps.event.addListener(map, "click", function(event)
+    {
+        placeMarker(event.latLng);
+    });
+}
+
 function placeMarker(location) {
 
     deleteOverlays();
@@ -107,8 +162,9 @@ function deleteOverlays() {
     }
 }
 
-function guardar()
+function editar()
 {
+    var id = $("#txtId").val();
     var titulo = $("#txtTitulo").val();
     var tipo = $("#selectTipo").val();
     var tipoTexto = $("#selectTipo option:selected").html();
@@ -134,8 +190,9 @@ function guardar()
     var fechaPublicacion = $("#txtfechaPublicacion").val();
     var fechaVencimiento = $("#txtfechaVencimiento").val();
 
-    if(titulo && tipo && descripcion && cargo && departamento != null && municipio != null && correo && telefono && fechaPublicacion && fechaVencimiento) {
+    if(id && titulo && tipo && descripcion && cargo && departamento != null && municipio != null && correo && telefono && fechaPublicacion && fechaVencimiento) {
 
+        localStorage.setItem('id', id);
         localStorage.setItem('titulo', titulo);
         localStorage.setItem('tipo', tipo);
         localStorage.setItem('descripcion', descripcion);
@@ -174,12 +231,12 @@ function guardar()
     }
 }
 
-function agregarVacante() {
+function modificarVacante() {
 
     MostrarDivCargando();
 
     var vacante = new Object();
-    vacante.ID = null;
+    vacante.ID = localStorage.getItem('id');
     vacante.Titulo = localStorage.getItem('titulo');
     vacante.TipoID = localStorage.getItem('tipo');
     vacante.Descripcion = localStorage.getItem('descripcion');
@@ -212,13 +269,13 @@ function agregarVacante() {
     vacante.Empleador = "EMPRESA123";
 
     $.ajax({
-        url: 'http://apiempleo.apphb.com/api/Vacante/agregarVacante',
+        url: 'http://apiempleo.apphb.com/api/Vacante/modificarVacante',
         type: 'POST',
         dataType: 'json',
         contentType: "application/json",
         data: JSON.stringify(vacante),
         success: function (data, textStatus, xhr) {
-            abrirConfirm("la vacante ha sido registrada exitosamente!!");
+            abrirConfirm("la vacante ha sido modificada exitosamente!!");
             OcultarDivCargando();
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -237,4 +294,27 @@ function regresar()
 
 function gestionarVacantes() {
     document.location.href="lista_ofertas_empleador.html";
+}
+
+function regresarListado() {
+    document.location.href="lista_ofertas_empleador.html";
+}
+
+function getEndDate(fecha) {
+    var today = new Date(fecha);
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd='0'+dd
+    } 
+
+    if(mm<10) {
+        mm='0'+mm
+    } 
+
+    today = mm+'/'+dd+'/'+yyyy;
+
+    return today;
 }
