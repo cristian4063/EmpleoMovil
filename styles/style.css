@@ -39,22 +39,23 @@ body {
 	height:100%;
 }
 
-
-
 .sidebar-decoration{
 	display:block;
-	height:1px;
-	width:220px;
-	margin-left:20px;
-	background-color:rgba(255,255,255,0.1);
+	height: 2px;
+    background-color: rgba(0,0,0,0.15);
+    border-bottom: solid 1px rgba(255,255,255,0.07);
 }
 
 .sidebar-section{
-	height:50px;
+	height: 45px;
+    background-color: #E84427;
+    border-right-style: solid;
+    border-right-width: 4px;
+    border-right-color: white;
 }
 
 .sidebar-section em{
-	font-family:'Raleway', sans-serif;
+	font-family:'DinProBold', sans-serif;
 	font-size:14px;
 	color:#FFFFFF;
 	text-align:right;	
@@ -91,15 +92,27 @@ body {
 }
 
 .sidebar-logo{
-	background-image:url(../images/misc/logo-sidebar.png);
-	background-repeat:no-repeat;
-	background-size:187px 50px;
-	width:187px;
-	height:50px;
-	display:block;
-	margin-left:20px;
-	margin-top:20px;
-	margin-bottom:20px;
+	background-repeat: no-repeat;
+    background-size: 187px 50px;
+    width: 150px;
+    height: 55px;
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar-breadcrumb{
+	border-top:solid 1px rgba(255,255,255,0.05);
+	border-bottom:solid 1px rgba(255,255,255,0.05);
+	background-color:#E84427;
+	color: White;
+	font-weight: bold;
+	font-size:12px;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:20px;
+	font-family:'DinProBold', sans-serif;
 }
 
 .sidebar-navigation{
@@ -109,21 +122,46 @@ body {
 
 .nav-item{
 	width:220px;
-	margin-left:20px;
+	margin-left:10px;
 }
 
 .nav-item a{
-	font-size:14px;
+	font-size:12px;
 	line-height:50px;
-	color:#FFFFFF;
-	font-family:'Raleway', sans-serif;
+	color:#000000;
+	font-family:'DinProlight', sans-serif;
 	font-weight:200;
-	letter-spacing:1px;
 	-webkit-font-smoothing:antialiased;
+	background-position: 0px 11px;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    padding-left: 33px;
+    font-family:'DinProBold', sans-serif;
+}
+
+.selected-item {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #E84427;
+    right: 0px;
+    margin-top: 19px;
+}
+
+.unselected-item{
+	position:absolute;
+	width:8px;
+	height:8px;
+	border-radius:8px;
+	background-color:#666;
+	right:0px;
+	margin-top:19px;
 }
 
 .nav-item-submenu{
 	display:none;
+	width: 250px;
 }
 
 .active-submenu{
@@ -132,11 +170,16 @@ body {
 
 .nav-item-submenu a{
 	background-image:url(../images/misc/sidebar-arrow.png);
-	background-size:13px 13px;
-	background-position:right;
+	background-size:15px 15px;
 	background-repeat:no-repeat;
-	padding-left:30px;
+	padding-left:45px;
 	font-size:12px;
+	border-top: solid 1px rgba(255,255,255,0.05);
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+    line-height: 50px;
+    background-position: 10px 16px;
+    color: rgba(0,0,0,0.9);
+    font-weight: bold;
 }
 
 .active-subnav{
@@ -194,10 +237,10 @@ body {
 }
 
 .sidebar-copyright{
-	text-align:center;
+	text-align:right;
 	font-size:10px;
-	margin-top:20px;
-	margin-bottom:20px;
+	margin-right: 10px;
+	margin-bottom:10px;
 	opacity:0.8;
 }
 
@@ -225,7 +268,7 @@ body {
 	padding-right:23px;
 	margin-top:-35px;
 	font-style:normal;
-	font-family:'Raleway', sans-serif;
+	font-family:'DinProBold', sans-serif;
 	font-size:14px;
 	color:#1f1f1f;
 }
@@ -350,7 +393,7 @@ body {
 	color:#1f1f1f;
 	font-size:14px;
 	margin-top:10px;
-	font-family:'Raleway', sans-serif;
+	font-family:'DinProlight', sans-serif;
 }
 
 
@@ -435,7 +478,7 @@ body {
 }
 
 .wide-item-titles h4{
-	font-family:'Open Sans', sans-serif;
+	font-family:'DinProlight', sans-serif;
 	font-weight:200;
 	font-size:18px;
 	text-transform:uppercase;
@@ -537,23 +580,26 @@ body {
 	margin-bottom:2px;
 }
 
+.home-icon{
+	background-image:url(../images/icons/misc/home.png);
+}
 
+.home-favoritas{
+	background-image:url(../images/icons/commerce/pricetag2.png);
+}
 
+.home-faqs{
+	background-image:url(../images/icons/communication/speechbubble4.png);
+}
 
+.home-info-about{
+	background-image:url(../images/icons/misc/infoabout.png);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.home-admin{
+	background-image:url(../images/icons/user/adminuser.png);
+	background-image: url(../images/icons/user/adminuser.png);
+    background-position: 0px 11px;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+}

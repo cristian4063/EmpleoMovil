@@ -3429,7 +3429,7 @@ $.widget( "ui.tooltip", {
               .tooltip("open");
             this.element.val("");
             if ($('input.ui-autocomplete-input:eq(0)').val() == "")
-                $('#selectMunicipios').empty();
+                $('#municipio').empty();
             $('input.ui-autocomplete-input:eq(1)').val("");
             this._delay(function () {
                 this.input.tooltip("close").attr("title", "");
