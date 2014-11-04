@@ -1,0 +1,174 @@
+.CargandoModalBackground
+{
+    overflow: hidden;
+    background-color: #0D0D0D;
+    filter: alpha(opacity=90);
+    opacity: 0.9;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 9999;
+    color: white;
+    text-align: left;
+}
+
+.cuadro-internet-connection
+{
+    position: fixed;
+    overflow: auto;
+    bottom: 0px;
+    z-index: 800;
+    left: 20px;
+    padding: 7px 10px 7px 10px;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    background: #f6f6f6;
+    color: #888888;
+}
+
+.circulo-internet-connection
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #80d580;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 1px;
+    left: 8px;
+    margin: auto;
+    height: 9px;
+    width: 9px;
+}
+
+.styled-select
+{
+    height: 34px;
+    overflow: hidden;
+    background: url(images/flecha_abajo.png) no-repeat right #F4F4F4;
+    padding: 3px;
+    padding-right: 0px;
+    margin: 0px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    color: #666;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+#contactNameField
+{
+    text-transform: none;
+}
+
+/*This css is to jquerycombobox----------------------------------------------------------------------------------------*/
+.lista_lateral
+{
+    background-color: #d9edf7;
+    border-radius: 6px 6px 6px 6px;
+}
+
+.k-select
+{
+    border: 0px !important;
+}
+
+.sel_item
+{
+    background-color: #d9edf7 !important;
+}
+
+.espacio_span
+{
+    margin-right: 4px;
+}
+
+.espacio_span_abajo
+{
+    margin-bottom: 10px;
+}
+
+.panel-title
+{
+    font-family: "Helvetica Neue" ,Helvetica,Arial,sans-serif;
+}
+
+.custom-combobox
+{
+    width: 100%;
+}
+
+.custom-combobox-input
+{
+    width: 97% !important;
+    height: 29px;
+}
+
+li
+{
+    list-style: none;
+}
+
+.ui-corner-all {
+    padding-left: 6px;
+}
+
+#ui-id-1, #ui-id-2
+{
+    max-height: 400px;
+    overflow: scroll;
+}
+
+.contactField
+{
+    display: inline-block;
+}
+
+.infoDiv
+{
+    width: 200px;
+    height: 100px;
+    -webkit-user-select: none;
+    background-color: white;
+}
+
+div
+{
+    overflow: visible;
+}
+
+#footer > div
+{
+    overflow: hidden;
+}
+
+.sidebar-copyright 
+{
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
