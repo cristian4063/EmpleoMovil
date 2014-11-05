@@ -81,9 +81,10 @@
     cursor: pointer;
 }
 
-#contactNameField
+.contactNameField
 {
     text-transform: none;
+    padding-top: 10px;
 }
 
 /*This css is to jquerycombobox----------------------------------------------------------------------------------------*/
@@ -134,7 +135,8 @@ li
     list-style: none;
 }
 
-.ui-corner-all {
+.ui-corner-all
+{
     padding-left: 6px;
 }
 
@@ -151,7 +153,6 @@ li
 
 .infoDiv
 {
-    width: 200px;
     height: 100px;
     -webkit-user-select: none;
     background-color: white;
@@ -167,7 +168,7 @@ div
     overflow: hidden;
 }
 
-.sidebar-copyright 
+.sidebar-copyright
 {
     margin-bottom: 0;
     padding-bottom: 20px;
