@@ -40,7 +40,7 @@ $(function () {
 
 function validarInactividad(){
     if(localStorage.getItem("nombreUsuario")) {
-        $("#header").append('<a onclick="cerrar()" style="float:right;"><img style="width:35px;margin-top:-30px;" src="images/icons/user/exit.png" alt="img"></a>');
+        $("#header").append('<a onclick="cerrar()" style="float:right;overflow:visible;padding-right: 10px;"><img style="width:35px;margin-top:-30px;" src="images/icons/user/exit.png" alt="img"></a>');
         $("#opc_Sesion").css("display", "none");
     }
     else {
@@ -280,34 +280,6 @@ function abrirConfirm(contenido){
 
 }
 
-function abrirConfirmSesion(contenido){
-    var windowWidth = $(window).width();
-    var windowHeight = $(window).height();
-    var ancho=windowWidth-(windowWidth/10);
-    $('#content-alert').html('<p>'+contenido+'</p>');
-    $("#div-confirm").dialog({
-        modal: true,
-        draggable: false,
-        resizable: false,
-        title: 'Advertencia',
-        minWidth:ancho,
-        my: "center",
-        at: "center",
-        of: window,
-        show: 'blind',
-        hide: 'blind',
-        dialogClass: 'prueba',
-        buttons: {
-            "Aceptar": function() {
-                $(this).dialog("close");
-                //OcultarDivCargando();
-                document.location.href="lista_ofertas_empleador.html";
-            }
-        }
-    });
-
-}
-
 function abrirAlertSesion(contenido){
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
@@ -333,4 +305,11 @@ function abrirAlertSesion(contenido){
         }
     });
 
+}
+
+function cerrar()
+{
+    localStorage.removeItem("nombreUsuario");
+    localStorage.removeItem("tiempo");
+    document.location.href = "inicio-sesion.html";
 }

@@ -35,8 +35,9 @@
     <script type="text/javascript" src="scripts/custom.js"></script>
     <script type="text/javascript" src="scripts/framework.js"></script>
     <script type="text/javascript" src="scripts/framework.launcher.js"></script>
-    <script type="text/javascript" src="scripts/jquery.combobox.js"></script>
+    <script type="text/javascript" src="scripts/bd.js"></script>
     <script type="text/javascript" src="scripts/vacantes_favoritas.js"></script>
+    <script type="text/javascript" src="scripts/jquery.combobox.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <style type="text/css">
         .CargandoModalBackground
@@ -162,12 +163,15 @@
                             <div class="nav-item-submenu">
                                 <div class="sidebar-decoration">
                                 </div>
-                                <a href="inicio-sesion.html" class="active-nav home-favoritas">Inicio sesion <em
-                                    class="unselected-item" style="right: 29px;"></em></a><a id="opc_Registrar" name="opc_Registrar"
-                                        href="RegistrarOferta.html" class="active-nav home-favoritas">Publicar vacante nueva
-                                        <em class="unselected-item"></em></a><a id="opc_VerMias" name="opc_VerMias" href="lista_ofertas_empleador.html"
-                                            class="active-nav home-favoritas">Gestionar vacantes <em class="unselected-item">
-                                            </em></a>
+                                <a id="opc_Sesion" href="inicio-sesion.html" class="active-nav home-favoritas">
+                                    Inicio sesion <em class="unselected-item" style="right: 29px;"></em>
+                                </a>
+                                <a id="opc_Registrar" name="opc_Registrar" href="RegistrarOferta.html" class="active-nav home-favoritas">
+                                    Publicar vacante nueva<em class="unselected-item"></em>
+                                </a>
+                                <a id="opc_VerMias" name="opc_VerMias" href="lista_ofertas_empleador.html" class="active-nav home-favoritas">
+                                    Gestionar vacantes <em class="unselected-item"></em>
+                                </a>
                             </div>
                         </div>
                         <div class="sidebar-decoration">
@@ -196,7 +200,7 @@
             </div>
         </div>
         <div id="content" class="page-content">
-            <div class="content-controls" style="margin-bottom: 10px; padding-bottom: 10px; background-color: #E84427;">
+            <div id="header" class="content-controls" style="margin-bottom: 10px; padding-bottom: 10px; background-color: #E84427;">
                 <a href="#" class="deploy-sidebar"></a><em style="text-transform: uppercase; font-size: medium;
                     font-weight: bold; color: white; text-align: center;">Servicio de Empleo Móvil</em>
             </div>
