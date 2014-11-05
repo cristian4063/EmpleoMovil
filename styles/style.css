@@ -28,6 +28,7 @@ body {
 	bottom:0px;
 	overflow:hidden;
 	position:fixed;
+	background-color: #F4F4F4;
 }
 
 .page-sidebar-scroll{
@@ -308,6 +309,7 @@ body {
 
 .content-header{
 	margin-bottom:20px;
+	text-align: center;
 }
 
 .services-item em{
