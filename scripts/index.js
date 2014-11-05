@@ -8,24 +8,14 @@ var marker;
 var markersArray = [];
 
 $(document).ready(function () {
-    if (localStorage.getItem('MostrarAlertaPrimera')) {
-        //$("#mostrarAlertaPrimera").val(localStorage.getItem('Experiencia'));
+    if (localStorage.getItem('MostrarabrirAlertaPrimera')) {
+        //$("#mostrarabrirAlertaPrimera").val(localStorage.getItem('Experiencia'));
     }
     else {
-        alert('El Servicio de Empleo Móvil le ofrece a los empleadores una solución para publicar vacantes de manera rápida y gratuita cuando no requieren de los servicios de intermediación de un centro de empleo, y a los buscadores un canal para consultarlas de manera inmediata');
-        localStorage.setItem('MostrarAlertaPrimera', '1');
+        abrirAlert('El Servicio de Empleo Móvil le ofrece a los empleadores una solución para publicar vacantes de manera rápida y gratuita cuando no requieren de los servicios de intermediación de un centro de empleo, y a los buscadores un canal para consultarlas de manera inmediata');
+        localStorage.setItem('MostrarabrirAlertaPrimera', '1');
     }
     configurar_db();
-    if (!doesConnectionExist()) {
-        location.href = "vacantes_favoritas.html";
-    }
-    if (doesConnectionExist()) {
-        $("#label-internet-connection").text("Online");
-        $("#div-internet-connection").css("background-color", "#80d580");
-    } else {
-        $("#label-internet-connection").text("Offline");
-        $("#div-internet-connection").css("background-color", "#ec8787");
-    }
     if (localStorage.getItem('Nivel')) {
         $("#selectNivel").val(localStorage.getItem('Nivel'));
     }
@@ -39,54 +29,10 @@ $(document).ready(function () {
         $("#selectExperiencia").val(localStorage.getItem('Experiencia'));
     }
     cargarDepartamentos();
-    validarInactividad();
-    validarSesion();
     $("#map_canvas").hide();
 });
 
-$(function () {
-    $("#departamento").combobox();
-    $("#toggle").click(function () {
-        $("#departamentos").toggle();
-    });
-
-    $('#combobox option').each(function () {
-        $(this).removeAttr('selected')
-    });
-
-    //Evento change select departamento
-    $("#departamento").combobox({
-        selectFirst: true,
-        select: function (event, ui) {
-            //                    alert(ui.item.text); alert(ui.item.value);
-            $('input.ui-autocomplete-input:eq(1)').val("");
-            cargarMunicipios();
-        },
-        focus: function (event, ui) { event.preventDefault(); }
-    });
-
-    $("#municipio").combobox({
-        selectFirst: true,
-        focus: function (event, ui) { event.preventDefault(); }
-    });
-
-    $("#toggle").click(function () {
-        $("#municipio").toggle();
-    });
-});
-
-function abrirPaginaFacebook(nombre, id) {
-    var url = 'http://empleomovil.apphb.com/Vacantes/Details/' + id;
-    var title = 'Comparta esta vacante';
-    var descr = 'Descripción de la vacante de prueba';
-    var image = 'http://goo.gl/B8AWrE';
-    window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=auto,left=auto,toolbar=0,status=0,width=auto,height=auto');
-}
-
-function abrirPaginaTwitter(nombre, id) {
-    var url = 'http://empleomovil.apphb.com/Vacantes/Details/' + id;
-    window.open("https://twitter.com/intent/tweet?url=" + url + "&text=Oportunidad de empleo: " + nombre, "_blank", "closebuttoncaption=Regresar");
-}
+//-----------------------------------------------------------------     A     -----------------------------------------------------------------//
 
 function agregarFavoritos(id, titulo, descripcion, vacantes, cargo, salario, experiencia, nivel, profesion, fechaPublicacion, fechaVencimiento, diasVence, empleador, telefono, indicativo, celular, direccion, email, fecha_actualizacion) {
     //$("#estrella" + id).attr("src", "images/estrella_llena.png");
@@ -112,64 +58,7 @@ function agregarFavoritos(id, titulo, descripcion, vacantes, cargo, salario, exp
     guardarVacante();
 }
 
-function CancelarDenuncia(id) {
-    $("#btnDen" + id).show();
-    $("#comboDen" + id).hide();
-}
-
-function cargarDepartamentos() {
-    MostrarDivCargando();
-    $('#departamento').empty();
-
-    $.ajax({
-        url: 'http://apiempleo.apphb.com/api/Vacante/obtenerDepartamentos',
-        type: 'POST',
-        dataType: 'json',
-        success: function (data, textStatus, xhr) {
-            $.each(data, function (i, val) {
-                $('#departamento').append('<option value="' + val['ID'] + '">' + val['Nombre'] + '</option>');
-            });
-            if (localStorage.getItem('Departamento')) {
-                $("#departamento").val(localStorage.getItem('Departamento'));
-            }
-            else {
-                localStorage.setItem('Departamento', $("#departamento").val());
-            }
-            $('input.ui-autocomplete-input:eq(0)').val($('#departamento option:selected').text());
-            cargarMunicipios();
-            OcultarDivCargando();
-        },
-        error: function (xhr, textStatus, errorThrown) {
-            alert("Ha ocurrido un problema, inténtelo nuevamente.")
-        }
-    });
-}
-
-function cargarMunicipios() {
-    MostrarDivCargando();
-    $('#municipio').empty();
-    $.ajax({
-        url: 'http://apiempleo.apphb.com/api/Vacante/obtenerMunicipios?departamento=' + $("#departamento").val(),
-        type: 'POST',
-        dataType: 'json',
-        success: function (data, textStatus, xhr) {
-            $.each(data, function (i, val) {
-                $('#municipio').append('<option value="' + val['ID'] + '">' + val['Nombre'] + '</option>');
-            });
-            if (localStorage.getItem('Municipio')) {
-                $("#municipio").val(localStorage.getItem('Municipio'));
-            }
-            else {
-                localStorage.setItem('Municipio', $("#municipio").val());
-            }
-            $('input.ui-autocomplete-input:eq(1)').val($('#municipio option:selected').text());
-            OcultarDivCargando();
-        },
-        error: function (xhr, textStatus, errorThrown) {
-            alert("Ha ocurrido un problema, inténtelo nuevamente.")
-        }
-    });
-}
+//-----------------------------------------------------------------     C     -----------------------------------------------------------------//
 
 function cargarOfertas(palabra) {
     $("#map_canvas").hide();
@@ -216,10 +105,10 @@ function cargarOfertas(palabra) {
         success: function (data, textStatus, xhr) {
             var cantidad = data.length;
             if (cantidad == 0) {
-                alert("No existen vacantes con los filtros seleccionados, intente seleccionando valores diferentes.")
+                abrirAlert("No existen vacantes con los filtros seleccionados, intente seleccionando valores diferentes.")
             }
             $.each(data, function (i, val) {
-                //alert(val['Titulo']);
+                //abrirAlert(val['Titulo']);
                 var rutaEstrella = "images/estrella_vacia.png";
                 var metodoFavorito = 'agregarFavoritos(' + val['ID'] + ',\'' + val['Titulo'] + '\',\'' + val['Descripcion'] + '\',\'' + val['Num_vacantes'] + '\',\'' + val['Cargo'] + '\',\'' + val['Salario'] + '\',\'' + val['Experiencia'] + '\',\'' + val['Nivel_estudios'] + '\',\'' + val['Profesion'] + '\',\'' + val['Fecha_publicacion'] + '\',\'' + val['Fecha_vencimiento'] + '\',\'' + val['DiasVence'] + '\',\'' + val['Empleador'] + '\',\'' + val['Telefono'] + '\',\'' + val['Indicativo'] + '\',\'' + val['Celular'] + '\',\'' + val['Direccion'] + '\',\'' + val['Email'] + '\',\'' + val['Ultima_Actualizacion'] + '\')';
                 var metodoDenuncia = 'GuardarDenuncia(' + val['ID'] + ',\'' + val['Titulo'] + '\',\'' + val['Descripcion'] + '\',\'' + val['Num_vacantes'] + '\',\'' + val['Cargo'] + '\',\'' + val['Salario'] + '\',\'' + val['Experiencia'] + '\',\'' + val['Nivel_estudios'] + '\',\'' + val['Profesion'] + '\',\'' + val['Fecha_publicacion'] + '\',\'' + val['Fecha_vencimiento'] + '\',\'' + val['DiasVence'] + '\',\'' + val['Empleador'] + '\',\'' + val['Telefono'] + '\',\'' + val['Indicativo'] + '\',\'' + val['Celular'] + '\',\'' + val['Direccion'] + '\',\'' + val['Email'] + '\',\'' + val['Ultima_Actualizacion'] + '\')';
@@ -341,17 +230,17 @@ function cargarOfertas(palabra) {
             });
             if (cantidad != 0) {
                 if (cantidad == 1) {
-                    alert('Se ha encontrado ' + cantidad + ' oportunidad.');
+                    abrirAlert('Se ha encontrado ' + cantidad + ' oportunidad.');
                 }
                 else {
-                    alert('Se han encontrado ' + cantidad + ' oportunidades.');
+                    abrirAlert('Se han encontrado ' + cantidad + ' oportunidades.');
                 }
 
             }
             OcultarDivCargando();
         },
         error: function (xhr, textStatus, errorThrown) {
-            alert("Ha ocurrido un problema, inténtelo nuevamente.");
+            abrirAlert("Ha ocurrido un problema, inténtelo nuevamente.");
             OcultarDivCargando();
         }
     });
@@ -497,7 +386,7 @@ function cargarVacante(vacanteID) {
             $("#map_canvas").hide();
         },
         error: function (xhr, textStatus, errorThrown) {
-            alert(errorThrown);
+            abrirAlert(errorThrown);
         }
     });
 }
@@ -553,12 +442,12 @@ function cargarVacantesMapa(palabra) {
                 $("#map_canvas").show();
             }
             else {
-                alert("No existe información geo-referenciada suficiente.");
+                abrirAlert("No existe información geo-referenciada suficiente.");
             }
             OcultarDivCargando();
         },
         error: function (xhr, textStatus, errorThrown) {
-            alert("Ha ocurrido un problema, inténtelo nuevamente.");
+            abrirAlert("Ha ocurrido un problema, inténtelo nuevamente.");
             OcultarDivCargando();
         }
     });
@@ -583,39 +472,15 @@ function configurar_db() {
 
 }
 
-function Denunciar(id) {
-    $("#btnDen" + id).hide();
-    $("#comboDen" + id).show();
-}
-
-function doesConnectionExist() {
-    var xhr = new XMLHttpRequest();
-    var file = "http://lavanderialabruja.com/images/logo.png";  //  Cambiar despues por una imagen del proyecto
-    var randomNum = Math.round(Math.random() * 10000);
-
-    xhr.open('HEAD', file + "?rand=" + randomNum, false);
-
-    try {
-        xhr.send();
-
-        if (xhr.status >= 200 && xhr.status < 304) {
-            return true;
-        } else {
-            return false;
-        }
-    } catch (e) {
-        return false;
-    }
-}
+//-----------------------------------------------------------------     E     -----------------------------------------------------------------//
 
 function enviar(opcion) {
-    //alert($('input.ui-autocomplete-input:eq(0)').val());
     if ($("#departamento").val() == null || $('input.ui-autocomplete-input:eq(0)').val() == "") {
-        alert("Debe seleccionar un departamento.")
+        abrirAlert("Debe seleccionar un departamento.")
     }
     else {
         if ($("#municipio").val() == null || $('input.ui-autocomplete-input:eq(1)').val() == "") {
-            alert("Debe seleccionar un municipio.")
+            abrirAlert("Debe seleccionar un municipio.")
         }
         else {
             localStorage.setItem('Departamento', $("#departamento").val());
@@ -635,97 +500,7 @@ function enviar(opcion) {
     }
 }
 
-function GuardarDenuncia(id, titulo, descripcion, vacantes, cargo, salario, experiencia, nivel, profesion, fechaPublicacion, fechaVencimiento, diasVence, empleador, telefono, indicativo, celular, direccion, email, fecha_actualizacion) {
-    var denuncia = new Object();
-    denuncia.Fecha = null;
-    denuncia.Tipo = $("#selectMotivoDenuncia" + id + " option:selected").html();
-    denuncia.vacanteID = id;
-    denuncia.Email = email;
-    denuncia.TituloEmail = "La vacante '" + titulo + "' publicada a través del Servicio de Empleo Móvil ha sido denunciada";
-    denuncia.TextoEmail = "Señor/a " + empleador + "<br/><br/>" +
-          "La vacante '" + titulo + "' ha sido denunciada por varios usuarios de la app. Por precaución la vacante ha sido automáticamente despublicada.<br/><br/>" +
-          "RESUMEN DE LA VACANTE:<br/><br/>" +
-          "Título de la vacante: " + titulo + "<br/>" +
-          "Tipo de oportunidad”: " + $("#selectTipoOportunidad option:selected").html() +"<br/>" +
-          "Descripción de la vacante: " + descripcion + "<br/>" +
-          "Cargo: " + cargo + "<br/>" +
-          "Salario ofrecido: " + salario + "<br/>" +
-          "Experiencia mínima requerida: " + experiencia + "<br/>" +
-          "Nivel de estudio mínimo requerido: " + nivel + "<br/>" +
-          "Profesión: " + profesion + "<br/>" +
-          "Ubicación: " + $("#departamento option:selected").html() + "/" + $("#municipio option:selected").html() + "<br/>" +
-          "Dirección de referencia: " + direccion + "<br/>" +
-          "Correo Electrónico de Contacto: " + email + "<br/>" +
-          "Teléfono de Contacto: " + telefono + "<br/><br/>" +
-          "Servicio de Empleo Móvil - Este es un correo electrónico automático, por favor no lo responda";
-
-    $.ajax({
-        url: 'http://apiempleo.apphb.com/api/Vacante/agregarDenuncia',
-        type: 'POST',
-        dataType: 'json',
-        contentType: "application/json",
-        data: JSON.stringify(denuncia),
-        success: function (data, textStatus, xhr) {
-            alert(data);
-            if (data == "Denuncia guardada correctamente") {
-                $("#btnDen" + id).show();
-                $("#comboDen" + id).hide();
-            }
-        },
-        error: function (xhr, textStatus, errorThrown) {
-            alert(errorThrown);
-        }
-    });
-}
-
-function guardarVacante() {
-    var db = window.openDatabase("bd_vacantes", "1.0", "Vacantes", 100000);
-    db.transaction(GuardarVacanteBD, errorOperacion, operacionEfectuada);
-
-    function GuardarVacanteBD(tx) {
-        var id = localStorage.getItem("id_guardar");
-        var titulo = localStorage.getItem("titulo_guardar");
-        var nombre_tipo = $("#selectTipoOportunidad option:selected").text();
-        var descripcion = localStorage.getItem("descripcion_guardar");
-        var vacantes = localStorage.getItem("vacantes_guardar");
-        var cargo = localStorage.getItem("cargo_guardar");
-        var salario = localStorage.getItem("salario_guardar");
-        var experiencia = localStorage.getItem("experiencia_guardar");
-        var nivel = localStorage.getItem("nivel_guardar");
-        var profesion = localStorage.getItem("profesion_guardar");
-        var departamento = $("#departamento option:selected").text();
-        var municipio = $("#municipio option:selected").text();
-        var fecha_publicacion = localStorage.getItem("fechaPublicacion_guardar");
-        var fecha_vencimiento = localStorage.getItem("fechaVencimiento_guardar");
-        var dias_vence = localStorage.getItem("diasVence_guardar");
-        var empleador = localStorage.getItem("empleador_guardar");
-        var telefono = localStorage.getItem("telefono_guardar");
-        var indicativo = localStorage.getItem("indicativo_guardar");
-        var celular = localStorage.getItem("celular_guardar");
-        var direccion = localStorage.getItem("direccion_guardar");
-        var email = localStorage.getItem("email_guardar");
-        var fecha_actualizacion = localStorage.getItem("fecha_actualizacion");
-
-        tx.executeSql('INSERT INTO vacantes (id, titulo, nombre_tipo, descripcion, vacantes, cargo, nombre_salario, sector, nombre_experiencia, nombre_nivel, profesion, nombre_departamento, nombre_municipio, fecha_publicacion, fecha_vencimiento, dias_vence, empleador, telefono, indicativo, celular, direccion, email, fecha_actualizacion) ' +
-        'VALUES ("' + id + '", "' + titulo + '" , "' + nombre_tipo + '", "' + descripcion + '", "' + vacantes + '", "' + cargo + '", "' + salario + '", " ", "' + experiencia + '", "' + nivel + '", "' + profesion + '", "' + departamento + '", "' + municipio + '", "' + fecha_publicacion + '", "' + fecha_vencimiento + '", "' + dias_vence + '", "' + empleador + '", "' + telefono + '", "' + indicativo + '", "' + celular + '", "' + direccion + '", "' + email + '", "' + fecha_actualizacion + '")');
-    }
-
-    // Transaction error callback
-    function errorOperacion(err) {
-        console.log(err);
-        alert("Error de operación: " + err);
-    }
-
-    function operacionEfectuada() {
-        $("#estrella" + localStorage.getItem("id_guardar")).attr("src", "images/estrella_llena.png")
-        if (localStorage.getItem('vacantesGuardadas'))
-            localStorage.setItem("vacantesGuardadas", localStorage.getItem("vacantesGuardadas") + "id" + localStorage.getItem("id_guardar") + ",");
-        else
-            localStorage.setItem("vacantesGuardadas", "id" + localStorage.getItem("id_guardar") + ",");
-        console.log("Operación Exitosa!");
-        alert("La vacante ha sido almacenada como favorita");
-    }
-}
+//-----------------------------------------------------------------     I     -----------------------------------------------------------------//
 
 function Initialize(data) {
     // Google has tweaked their interface somewhat - this tells the api to use that new UI
@@ -766,50 +541,7 @@ function Initialize(data) {
     })
 }
 
-//Mostrar Div cargando...
-function MostrarDivCargando(data) {
-    $('#loading').css("display", "block");
-}
-
-//Ocultar Div cargando...
-function OcultarDivCargando(data) {
-    $('#loading').css("display", "none");
-}
-
-function swapStyleSheet(sheet) {
-    document.getElementById('pagestyle').setAttribute('href', sheet);
-}
-
-function validarInactividad() {
-    if (localStorage.getItem("nombreUsuario")) {
-        $("#header").append('<a onclick="cerrar()" style="float:right;"><img style="width:35px;margin-top:-30px;" src="images/icons/user/exit.png" alt="img"></a>');
-        $("#opc_Sesion").css("display", "none");
-    }
-    else {
-        $("#opc_Sesion").css("display", "block");
-        $("#opc_Registrar").css("display", "none");
-        $("#opc_VerMias").css("display", "none");
-    }
-}
-
-function validarSesion() {
-
-    if (localStorage.getItem("tiempo")) {
-        var today = new Date();
-        var after = new Date(localStorage.getItem("tiempo"));
-        var diffMs = (today - after); // milliseconds between now & Christmas
-        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-
-        if (diffMins >= 15) { //Tiempo de inactividad 15 minutos
-            alert("Su sesión se cerrará por inactividad");
-            //alert("Su sesión se cerrará por inactividad");
-            //cerrar();
-        }
-        else {
-            localStorage.setItem("tiempo", today);
-        }
-    }
-}
+//-----------------------------------------------------------------     V     -----------------------------------------------------------------//
 
 function volverMapa() {
     var detalle = $("#detalle");
@@ -817,6 +549,8 @@ function volverMapa() {
     $("#map_canvas").show();
 }
 
+//-----------------------------------------------------------------     Y     -----------------------------------------------------------------//
+
 function yaAgregado() {
-    alert("La vacante ya ha sido agregada como favorita.");
+    abrirAlert("La vacante ya ha sido agregada como favorita.");
 }
