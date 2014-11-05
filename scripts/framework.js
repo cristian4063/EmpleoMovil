@@ -144,27 +144,16 @@ $(document).ready(function(){
 	if(isiPhone > -1) 	 {		   $('.ipod-detected').hide();		 $('.ipad-detected').hide();		 $('.iphone-detected').show();		 $('.android-detected').hide();	 }
 	if(isiPad > -1)	 {		 	 $('.ipod-detected').hide();		 $('.ipad-detected').show();		 $('.iphone-detected').hide();		 $('.android-detected').hide();	 }
 	if(isiPod > -1)	 {		 	 $('.ipod-detected').show();		 $('.ipad-detected').hide();		 $('.iphone-detected').hide();		 $('.android-detected').hide();	 }   
-	if(isiAndroid > -1) {			 $('.ipod-detected').hide();		 $('.ipad-detected').hide();		 $('.iphone-detected').hide();		 $('.android-detected').show();	 }  
-	
-	
+	if(isiAndroid > -1) {			 $('.ipod-detected').hide();		 $('.ipad-detected').hide();		 $('.iphone-detected').hide();		 $('.android-detected').show();	 }
+
+	var height = window.innerHeight;
+	height_fin = height + "px";
+	$('#content').css('min-height', height_fin);
+	setInterval("Tamanio()", 500);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function Tamanio() {
+    var height = window.innerHeight;
+    height_fin = height + "px";
+    $('#content').css('min-height', height_fin);
+}

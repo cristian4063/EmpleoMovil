@@ -296,7 +296,7 @@ function cargarOfertas(palabra) {
                                             '</ul>' +
                                         '</a>' +
                                         '<a name="#" style="width:60%; float:left; padding-top: 10px !important; padding-bottom: 10px !important;">' +
-                                            '<label style="padding-left: 10px;">Comparta esta oportunidad de trabajo<label>' +
+                                            '<label style="padding-left: 10px;">Comparta esta oportunidad de trabajo</label>' +
                                             '<ul style="margin-bottom:0px;" class="icon-list">' +
                                                 '<li style="padding-left: 0px;">' +
                                                     '<div style="width:50%; float:left;"><img src="images/misc/facebook.png" style="margin: 0 auto; width: 30px;" onclick="abrirPaginaFacebook(\'' + val['Titulo'] + '\', ' + val['ID'] + ')"/></div>' +
@@ -308,7 +308,7 @@ function cargarOfertas(palabra) {
                                             '<label style="padding-left: 10px;">' + textoFavorita + '</label>' +
                                             '<ul style="margin-bottom:0px;" class="icon-list">' +
                                                 '<li style="padding-left: 0px;">' +
-                                                    '<img id="estrella' + val['ID'] + '" src="' + rutaEstrella + '" onclick=\"' + metodoFavorito + '\" style="margin: 0 auto;" />' +
+                                                    '<img id="estrella' + val['ID'] + '" src="' + rutaEstrella + '" onclick=\"' + metodoFavorito + '\" style="margin: 0 auto; width: 30px;" />' +
                                                 '</li>' +
                                             '</ul>' +
                                         '</a>' +
@@ -458,7 +458,7 @@ function cargarVacante(vacanteID) {
                                         '<label style="padding-left: 10px;">' + textoFavorita + '</label>' +
                                         '<ul style="margin-bottom:0px;" class="icon-list">' +
                                             '<li style="padding-left: 0px;">' +
-                                                '<img id="estrella' + data['ID'] + '" src="' + rutaEstrella + '" onclick=\"' + metodoFavorito + '\" style="margin: 0 auto;" />' +
+                                                '<img id="estrella' + data['ID'] + '" src="' + rutaEstrella + '" onclick=\"' + metodoFavorito + '\" style="margin: 0 auto; width: 30px;" />' +
                                             '</li>' +
                                         '</ul>' +
                                     '</a>' +
@@ -723,7 +723,7 @@ function guardarVacante() {
         else
             localStorage.setItem("vacantesGuardadas", "id" + localStorage.getItem("id_guardar") + ",");
         console.log("Operación Exitosa!");
-        abrirAlert("La vacante ha sido almacenada como favorita");
+        alert("La vacante ha sido almacenada como favorita");
     }
 }
 

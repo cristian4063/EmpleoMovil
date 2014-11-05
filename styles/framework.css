@@ -194,7 +194,6 @@ ol > li:last-child, ul > li:last-child {
 
 body{
 	font-family:'DinProlight', sans-serif;
-	color:#666;
 	font-size:12px;
 	line-height:20px;
 }
@@ -1384,12 +1383,7 @@ table tr:hover td{
 }
 
 .toggle-1, .toggle-2, .toggle-3{
-	background-color:#eeeeee;   
-}
-
-.toggle-3{
-
-
+	background-color:#93B4AF;   
 }
 
 .deploy-toggle-1{
@@ -1416,7 +1410,7 @@ table tr:hover td{
 	text-transform:uppercase;
 	background-image:url(../images/lists/plus_48.png);
 	background-repeat:no-repeat;
-	background-size:14px 14px;
+	background-size: 25px 25px;
 	background-position:15px 18px;
 }
 
@@ -1470,7 +1464,7 @@ table tr:hover td{
 }
 
 .submenu-navigation{
-	background-color:#eeeeee;
+	background-color:#93B4AF;
 }
 
 .submenu-nav-deploy{
