@@ -18,13 +18,15 @@
         media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)" />
     <title>Servicio de Empleo Móvil</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css">
-    <link href="styles/colors/default.css" rel="stylesheet" type="text/css" id="pagestyle">
+    <link href="styles/colors/default.css" rel="stylesheet" type="text/css" id="Link1">
     <link href="styles/framework.css" rel="stylesheet" type="text/css">
     <link href="styles/owl.carousel.css" rel="stylesheet" type="text/css">
     <link href="styles/owl.theme.css" rel="stylesheet" type="text/css">
     <link href="styles/swipebox.css" rel="stylesheet" type="text/css">
+    <link href="styles/jquery-ui.css" rel="stylesheet" type="text/css">
     <link href="styles/colorbox.css" rel="stylesheet" type="text/css">
     <link href="styles/combobox.css" rel="stylesheet" type="text/css">
+    <link href="styles/general.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript" src="scripts/jquery.js"></script>
     <script type="text/javascript" src="scripts/jqueryui.js"></script>
@@ -36,84 +38,17 @@
     <script type="text/javascript" src="scripts/custom.js"></script>
     <script type="text/javascript" src="scripts/framework.js"></script>
     <script type="text/javascript" src="scripts/framework.launcher.js"></script>
-    <script type="text/javascript" src="scripts/bd.js"></script>
-    <script type="text/javascript" src="scripts/vacantes_favoritas.js"></script>
-    <script type="text/javascript" src="scripts/jquery.combobox.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <style type="text/css">
-        .CargandoModalBackground
-        {
-            overflow: hidden;
-            background-color: #0D0D0D;
-            filter: alpha(opacity=90);
-            opacity: 0.9;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            text-align: center;
-            vertical-align: middle;
-            width: 100%;
-            height: 100%;
-            display: none;
-            z-index: 9999;
-            color: white;
-            text-align: left;
-        }
-        
-        .cuadro-internet-connection
-        {
-            position: fixed;
-            overflow: auto;
-            bottom: 0px;
-            z-index: 800;
-            left: 20px;
-            padding: 7px 10px 7px 10px;
-            -webkit-border-radius: 4px 4px 0 0;
-            -moz-border-radius: 4px 4px 0 0;
-            -ms-border-radius: 4px 4px 0 0;
-            -o-border-radius: 4px 4px 0 0;
-            border-radius: 4px 4px 0 0;
-            -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
-            -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
-            background: #f6f6f6;
-            color: #888888;
-        }
-        
-        .circulo-internet-connection
-        {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            background: #80d580;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
-            border-radius: 50%;
-            display: block;
-            position: absolute;
-            top: 0;
-            bottom: 1px;
-            left: 8px;
-            margin: auto;
-            height: 9px;
-            width: 9px;
-        }
-        
-        #contactNameField
-        {
-            text-transform: none;
-        }
-        
-        .sidebar-copyright
-        {
-            margin-bottom: 0;
-            padding-bottom: 20px;
-        }
-    </style>
+    <script type="text/javascript" src="scripts/bd.js"></script>
+    <script type="text/javascript" src="scripts/general.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="scripts/vacantes_favoritas.js"></script>
 </head>
 <body>
+    <div id="div-confirm" style="display: none">
+        <div id="content-alert">
+        </div>
+    </div>
     <div id="preloader">
         <div id="status">
             <p class="center-text">

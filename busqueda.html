@@ -23,9 +23,28 @@
     <link href="styles/owl.carousel.css" rel="stylesheet" type="text/css">
     <link href="styles/owl.theme.css" rel="stylesheet" type="text/css">
     <link href="styles/swipebox.css" rel="stylesheet" type="text/css">
+    <link href="styles/jquery-ui.css" rel="stylesheet" type="text/css">
     <link href="styles/colorbox.css" rel="stylesheet" type="text/css">
     <link href="styles/combobox.css" rel="stylesheet" type="text/css">
-
+    <link href="styles/general.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .infoDiv
+        {
+            height: 100px;
+            -webkit-user-select: none;
+            background-color: white;
+        }
+        
+        div
+        {
+            overflow: visible;
+        }
+        
+        #footer > div
+        {
+            overflow: hidden;
+        }
+    </style>
     <script type="text/javascript" src="scripts/jquery.js"></script>
     <script type="text/javascript" src="scripts/jqueryui.js"></script>
     <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
@@ -39,9 +58,16 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="scripts/bd.js"></script>
     <script type="text/javascript" src="scripts/jquery.combobox.js"></script>
+    <script type="text/javascript" src="scripts/jquery.combobox.general.js"></script>
+    <script type="text/javascript" src="scripts/general.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
 </head>
 <body>
+    <div id="div-confirm" style="display: none">
+        <div id="content-alert">
+        </div>
+    </div>
     <div id="preloader">
         <div id="status">
             <p class="center-text">
@@ -70,18 +96,14 @@
                         <div class="sidebar-decoration">
                         </div>
                         <div class="nav-item">
-                            <a href="busqueda.html" class="active-nav home-icon">Oportunidades de empleo
-                                <em class="selected-item">
-                                </em>
-                            </a>
+                            <a href="busqueda.html" class="active-nav home-icon">Oportunidades de empleo <em
+                                class="selected-item"></em></a>
                         </div>
                         <div class="sidebar-decoration">
                         </div>
                         <div class="nav-item">
                             <a href="vacantes_favoritas.html" class="active-nav home-favoritas">Mis vacantes favoritas
-                                <em class="unselected-item">
-                                </em>
-                            </a>
+                                <em class="unselected-item"></em></a>
                         </div>
                         <div class="sidebar-decoration">
                         </div>
@@ -91,19 +113,17 @@
                         <div class="sidebar-decoration">
                         </div>
                         <div class="nav-item home-admin">
-                            <a href="#" class="dropdown-nav" style="background-position: right; background-size: 18px 18px; width: 224px;">Sección del empleador</a>
+                            <a href="#" class="dropdown-nav" style="background-position: right; background-size: 18px 18px;
+                                width: 224px;">Sección del empleador</a>
                             <div class="nav-item-submenu">
                                 <div class="sidebar-decoration">
                                 </div>
-                                <a id="opc_Sesion" href="inicio-sesion.html" class="active-nav home-favoritas">
-                                    Inicio sesion<em class="unselected-item" style="right: 29px;"></em>
-                                </a>
-                                <a id="opc_Registrar" name="opc_Registrar" href="RegistrarOferta.html" class="active-nav home-favoritas">
-                                    Publicar vacante nueva<em class="unselected-item"></em>
-                                </a>
-                                <a id="opc_VerMias" name="opc_VerMias" href="lista_ofertas_empleador.html" class="active-nav home-favoritas">
-                                    Gestionar vacantes<em class="unselected-item"></em>
-                                </a>
+                                <a id="opc_Sesion" href="inicio-sesion.html" class="active-nav home-favoritas">Inicio
+                                    sesion<em class="unselected-item" style="right: 29px;"></em> </a><a id="opc_Registrar"
+                                        name="opc_Registrar" href="RegistrarOferta.html" class="active-nav home-favoritas">
+                                        Publicar vacante nueva<em class="unselected-item"></em> </a><a id="opc_VerMias" name="opc_VerMias"
+                                            href="lista_ofertas_empleador.html" class="active-nav home-favoritas">Gestionar
+                                            vacantes<em class="unselected-item"></em> </a>
                             </div>
                         </div>
                         <div class="sidebar-decoration">
@@ -114,18 +134,14 @@
                         <div class="sidebar-decoration">
                         </div>
                         <div class="nav-item">
-                            <a href="faqs.html" class="active-nav home-faqs">Preguntas Frecuentes
-                                <em class="unselected-item">
-                                </em>
-                            </a>
+                            <a href="faqs.html" class="active-nav home-faqs">Preguntas Frecuentes <em class="unselected-item">
+                            </em></a>
                         </div>
                         <div class="sidebar-decoration">
                         </div>
                         <div class="nav-item">
-                            <a href="acerca.html" class="active-nav home-info-about">Acerca de
-                                <em class="unselected-item">
-                                </em>
-                            </a>
+                            <a href="acerca.html" class="active-nav home-info-about">Acerca de <em class="unselected-item">
+                            </em></a>
                         </div>
                         <div class="sidebar-decoration">
                         </div>
@@ -136,7 +152,8 @@
             </div>
         </div>
         <div id="content" class="page-content">
-            <div id="header" class="content-controls" style="margin-bottom: 10px; padding-bottom: 10px; background-color: #E84427;">
+            <div id="header" class="content-controls" style="margin-bottom: 10px; padding-bottom: 10px;
+                background-color: #E84427;">
                 <a href="#" class="deploy-sidebar"></a><em style="text-transform: uppercase; font-size: medium;
                     font-weight: bold; color: white; text-align: center;">Servicio de Empleo Móvil</em>
             </div>

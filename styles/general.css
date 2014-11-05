@@ -62,7 +62,7 @@
 {
     height: 34px;
     overflow: hidden;
-    background: url(images/flecha_abajo.png) no-repeat right #F4F4F4;
+    background: url(../images/flecha_abajo.png) no-repeat right #F4F4F4;
     padding: 3px;
     padding-right: 0px;
     margin: 0px;
@@ -149,23 +149,6 @@ li
 .contactField
 {
     display: inline-block;
-}
-
-.infoDiv
-{
-    height: 100px;
-    -webkit-user-select: none;
-    background-color: white;
-}
-
-div
-{
-    overflow: visible;
-}
-
-#footer > div
-{
-    overflow: hidden;
 }
 
 .sidebar-copyright
