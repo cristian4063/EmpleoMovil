@@ -442,7 +442,7 @@ function cargarVacantesMapa(palabra) {
                 $("#map_canvas").show();
             }
             else {
-                abrirAlert("No existe información geo-referenciada suficiente.");
+                abrirAlert("No existen vacantes geo-referenciadas con los filtros seleccionados, intente seleccionando valores diferentes.");
             }
             OcultarDivCargando();
         },
