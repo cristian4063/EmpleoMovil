@@ -3,7 +3,7 @@ var marker;
 var markersArray = [];
 
 $(document).ready(function () {
-    /*if (!doesConnectionExist()) {
+    if (!doesConnectionExist()) {
         location.href = "vacantes_favoritas.html";
     }
     if (doesConnectionExist()) {
@@ -12,13 +12,13 @@ $(document).ready(function () {
     } else {
         $("#label-internet-connection").text("Offline");
         $("#div-internet-connection").css("background-color", "#ec8787");
-    }*/
+    }
 
     localStorage.setItem('latitud', 0);
     localStorage.setItem('longitud', 0);
 
     cargar_niveles();
-    cargarDeptos();
+    cargarDepartamentos();
 });
 
 $(function() {
@@ -46,7 +46,7 @@ function AddRestrictedDays(arg) {
 
 function crearMapa() {
     setTimeout(function() {
-        geoCiudad($("#selectMunicipios option:selected").html());
+        geoCiudad($("#municipio option:selected").html());
     }, 500);
 }
 
@@ -122,10 +122,10 @@ function guardar()
     var nivelTexto = $("#select_nivel option:selected").html();
     var profesion = $("#txtProfesion").val();
     var salarioTexto = $("#selectSalario option:selected").html();
-    var departamento = $("#selectDepartamentos").val();
-    var departamentoTexto = $("#selectDepartamentos option:selected").html();
-    var municipio = $("#selectMunicipios").val();
-    var municipioTexto = $("#selectMunicipios option:selected").html();
+    var departamento = $("#departamento").val();
+    var departamentoTexto = $("#departamento option:selected").html();
+    var municipio = $("#municipio").val();
+    var municipioTexto = $("#municipio option:selected").html();
     var direccion = $("#txtDireccion").val();
     var correo = $("#txtCorreo").val();
     var indicativo = $("#selectIndicativo").val();
@@ -208,8 +208,7 @@ function agregarVacante() {
         vacante.Longitud = "0";
     }
 
-    //vacante.Empleador = localStorage.getItem("nombreUsuario");
-    vacante.Empleador = "EMPRESA123";
+    vacante.Empleador = localStorage.getItem("nombreUsuario");
 
     $.ajax({
         url: 'http://apiempleo.apphb.com/api/Vacante/agregarVacante',
