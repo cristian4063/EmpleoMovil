@@ -117,6 +117,7 @@ function abrirConfirm(contenido) {
         buttons: {
             "Aceptar": function () {
                 $(this).dialog("close");
+                //$("#opc_VerMias").trigger("click");
                 document.location.href = "lista_ofertas_empleador.html";
             }
         }
@@ -143,8 +144,7 @@ function abrirConfirmSesion(contenido) {
         buttons: {
             "Aceptar": function () {
                 $(this).dialog("close");
-                //OcultarDivCargando();
-                document.location.href = "lista_ofertas_empleador.html";
+                document.location.href = "RegistrarOferta.html";
             }
         }
     });
@@ -329,6 +329,9 @@ function validarInactividad() {
         $("#header").append('<a onclick="cerrar()" style="float:right;overflow:visible;padding-right:10px;"><img style="width:35px;margin-top:-30px;" src="images/icons/user/exit.png" alt="img"></a>');
         $("#opc_Sesion").css("display", "none");
         $('#menu_usuario_empleador').html("Bienvenid@ " + localStorage.getItem("nombreUsuario"));
+
+        $("#menuEmpleador").addClass("dropdown-nav-inactive");
+        $("#subMenuEmpleador").css("display", "block");
     }
     else {
         $("#opc_Sesion").css("display", "block");

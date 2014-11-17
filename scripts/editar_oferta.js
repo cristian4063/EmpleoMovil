@@ -3,7 +3,7 @@ var marker;
 var markersArray = [];
 
 $(document).ready(function () {
-    /*if (!doesConnectionExist()) {
+    if (!doesConnectionExist()) {
         location.href = "vacantes_favoritas.html";
     }
     if (doesConnectionExist()) {
@@ -12,12 +12,12 @@ $(document).ready(function () {
     } else {
         $("#label-internet-connection").text("Offline");
         $("#div-internet-connection").css("background-color", "#ec8787");
-    }*/
+    }
 
     $("#txtfechaVencimiento").datepicker({ minDate: new Date() });
 
     cargar_niveles();
-    cargarDeptos();
+    cargarDepartamentos();
 
     $("#txtId").val(localStorage.getItem('id'));
     $("#txtTitulo").val(localStorage.getItem('titulo'));
@@ -72,7 +72,7 @@ function AddRestrictedDays(arg) {
 
 function crearMapa() {
     setTimeout(function() {
-        geoCiudad($("#selectMunicipios option:selected").html());
+        geoCiudad($("#municipio option:selected").html());
     }, 500);
 }
 
@@ -178,10 +178,10 @@ function editar()
     var nivelTexto = $("#select_nivel option:selected").html();
     var profesion = $("#txtProfesion").val();
     var salarioTexto = $("#selectSalario option:selected").html();
-    var departamento = $("#selectDepartamentos").val();
-    var departamentoTexto = $("#selectDepartamentos option:selected").html();
-    var municipio = $("#selectMunicipios").val();
-    var municipioTexto = $("#selectMunicipios option:selected").html();
+    var departamento = $("#departamento").val();
+    var departamentoTexto = $("#departamento option:selected").html();
+    var municipio = $("#municipio").val();
+    var municipioTexto = $("#municipio option:selected").html();
     var direccion = $("#txtDireccion").val();
     var correo = $("#txtCorreo").val();
     var indicativo = $("#selectIndicativo").val();
@@ -265,8 +265,7 @@ function modificarVacante() {
         vacante.Longitud = "0";
     }
 
-    //vacante.Empleador = localStorage.getItem("nombreUsuario");
-    vacante.Empleador = "EMPRESA123";
+    vacante.Empleador = localStorage.getItem("nombreUsuario");
 
     $.ajax({
         url: 'http://apiempleo.apphb.com/api/Vacante/modificarVacante',
@@ -293,28 +292,28 @@ function regresar()
 }
 
 function gestionarVacantes() {
-    document.location.href="lista_ofertas_empleador.html";
+    document.location.href = "lista_ofertas_empleador.html";
 }
 
 function regresarListado() {
-    document.location.href="lista_ofertas_empleador.html";
+    document.location.href = "lista_ofertas_empleador.html";
 }
 
 function getEndDate(fecha) {
     var today = new Date(fecha);
     var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
+    var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
 
-    if(dd<10) {
-        dd='0'+dd
+    if(dd < 10) {
+        dd = '0' + dd;
     } 
 
-    if(mm<10) {
-        mm='0'+mm
+    if(mm < 10) {
+        mm = '0' + mm
     } 
 
-    today = mm+'/'+dd+'/'+yyyy;
+    today = mm + '/' + dd + '/' + yyyy;
 
     return today;
 }

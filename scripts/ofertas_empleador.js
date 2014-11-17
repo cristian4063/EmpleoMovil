@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    /*if (!doesConnectionExist()) {
+    if (!doesConnectionExist()) {
         location.href = "vacantes_favoritas.html";
     }
     if (doesConnectionExist()) {
@@ -8,7 +8,7 @@ $(document).ready(function () {
     } else {
         $("#label-internet-connection").text("Offline");
         $("#div-internet-connection").css("background-color", "#ec8787");
-    }*/
+    }
     cargarVacantesEmpleador();
 });
 
@@ -24,8 +24,7 @@ function cargarVacantesEmpleador() {
 
     MostrarDivCargando();
 
-    //var empleador = localStorage.getItem("nombreUsuario");
-    var empleador = "EMPRESA123";
+    var empleador = localStorage.getItem("nombreUsuario");
 
     $.ajax({
         url: 'http://apiempleo.apphb.com/api/Vacante/obtenerVacantesXEmpleador?empleador=' + empleador,
@@ -124,8 +123,8 @@ function cargarVacantesEmpleador() {
                                     '</div>' +
                                     '<div class="one-half-responsive">' +
                                         '<div style="text-align: center; width: 30%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="cargarDatosVacante('+val['ID']+')">Editar</a></div>' +
-                                        '<div style="text-align: center; width: 40%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick=\"' + estadoHtml + '\">'+ textoEstado +'</a></div>' +
-                                        '<div style="text-align: center; width: 30%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="confirmarEliminacion('+val['ID']+')">Eliminar</a></div>' +
+                                        '<div style="text-align: center; width: 34%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick=\"' + estadoHtml + '\">'+ textoEstado +'</a></div>' +
+                                        '<div style="text-align: center; width: 35%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="eliminarVacante('+val['ID']+')">Eliminar</a></div>' +
                                     '</div>'+
                                 '</div>' +
                             '</div>' +
@@ -191,17 +190,21 @@ function cargarDatosVacante(vacanteID) {
 }
 
 function cambiarEstadoVacante(vacanteID, estado) {
-    //var empleador = localStorage.getItem("nombreUsuario");
-    var empleador = "EMPRESA123";
+
+    MostrarDivCargando();
+
+    var empleador = localStorage.getItem("nombreUsuario");
     $.ajax({
         url: 'http://apiempleo.apphb.com/api/Vacante/cambiarEstadoVacante/?ID=' + vacanteID + '&empleador=' + empleador + '&estado=' + estado,
         type: 'POST',
         dataType: 'json',
         success: function (data, textStatus, xhr) {
             abrirConfirm("Se ha cambiado el estado de la vacante exitosamente");
+            OcultarDivCargando();
         },
         error: function (xhr, textStatus, errorThrown) {
             abrirAlert("Ha ocurrido un problema, inténtelo nuevamente.");
+            OcultarDivCargando();
         }
     });
 }
@@ -227,7 +230,7 @@ function confirmarEliminacion(vacanteID) {
         buttons: {
             "Aceptar": function() {
                 $(this).dialog("close");
-                //eliminarVacante(vacanteID);
+                eliminarVacante(vacanteID);
             },
             "Cancelar": function() {
                 $(this).dialog("close");
@@ -237,6 +240,9 @@ function confirmarEliminacion(vacanteID) {
 }
 
 function eliminarVacante(vacanteID) {
+
+    MostrarDivCargando();
+
     var empleador = localStorage.getItem("nombreUsuario");
     $.ajax({
         url: 'http://apiempleo.apphb.com/api/Vacante/eliminarVacante/?ID=' + vacanteID + '&empleador=' + empleador,
@@ -244,9 +250,11 @@ function eliminarVacante(vacanteID) {
         dataType: 'json',
         success: function (data, textStatus, xhr) {
             abrirConfirm("La vacante ha sido eliminada exitosamente");
+            OcultarDivCargando();
         },
         error: function (xhr, textStatus, errorThrown) {
             abrirAlert("Ha ocurrido un problema, inténtelo nuevamente.");
+            OcultarDivCargando();
         }
     });
 }
