@@ -70,17 +70,15 @@ function cargarVacantesEmpleador() {
                                     '<label>' +
                                         'Salario: <b>' + val['Salario'] + '</b></label>' +
                                     '<label>' +
-                                        'Sector: <b>' + val['Sector'] + '</b></label>' +
-                                    '<label>' +
                                         'Experiencia: <b>' + val['Experiencia'] + '</b></label>' +
                                     '<label>' +
                                         'Nivel de Estudios: <b>' + val['Nivel_estudios'] + '</b></label>' +
                                     '<label>' +
                                         'Profesión: <b>' + val['Profesion'] + '</b></label>' +
                                     '<label>' +
-                                        'Departamento: <b>' + val['Departamento'] + '</b></label>' +
+                                        'Departamento: <b>' + val['DepartamentoNombre'] + '</b></label>' +
                                     '<label>' +
-                                        'Municipio: <b>' + val['Municipio'] + '</b></label>' +
+                                        'Municipio: <b>' + val['MunicipioNombre'] + '</b></label>' +
                                     '<label>' +
                                         'Fecha Vencimiento: <b>' + val['Fecha_vencimiento'].substring(0, n) + '</b></label>' +
 
