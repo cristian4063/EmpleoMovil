@@ -173,7 +173,7 @@
                 <div class="decoration">
                 </div>
                 <div class="container no-bottom">
-                    <div class="big-notification blue-notification">
+                    <div class="big-notification red-notification" style="background-color: #F9B234;">
                         <h4>
                             En esta sección, podrá especificar las características de la vacante y del trabajador
                             que requiere, y publicarla de manera inmediata y gratuita
@@ -200,7 +200,7 @@
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Título (*): <span>(requerido)</span></label>
-                                    <input type="text" name="txtTitulo" value="" class="contactField requiredField" id="txtTitulo" />
+                                    <input type="text" name="txtTitulo" value="" class="contactField requiredField" id="txtTitulo" maxlength="250" />
                                 </div>
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
@@ -221,7 +221,7 @@
                                 <div class="formTextareaWrap">
                                     <label class="field-title contactMessageTextarea" for="contactMessageTextarea">
                                         Descripción (*): <span>(requerido)</span></label>
-                                    <textarea name="txtDescripcion" class="contactTextarea requiredField" id="txtDescripcion"></textarea>
+                                    <textarea name="txtDescripcion" class="contactTextarea requiredField" id="txtDescripcion" maxlength="1000"></textarea>
                                 </div>
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">

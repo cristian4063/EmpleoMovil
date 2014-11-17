@@ -27,6 +27,7 @@
     <link href="styles/colorbox.css" rel="stylesheet" type="text/css">
     <link href="styles/combobox.css" rel="stylesheet" type="text/css">
     <link href="styles/general.css" rel="stylesheet" type="text/css">
+    
     <script type="text/javascript" src="scripts/jquery.js"></script>
     <script type="text/javascript" src="scripts/jqueryui.js"></script>
     <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
@@ -147,7 +148,7 @@
                 <div class="decoration">
                 </div>
                 <div class="container">
-                    <div class="big-notification blue-notification">
+                    <div class="big-notification red-notification" style="background-color: #F9B234;">
                         <h4>
                             En esta sección, podrá consultar el histórico de las vacantes que ya publicó, y
                             modificarlas o inactivarlas</h4>
@@ -162,9 +163,6 @@
                 <div class="container no-bottom">
                     <div id="ofertas">
                     </div>
-                </div>
-                <div id="loading" class="CargandoModalBackground" style="padding-top: 150px;">
-                    <img src="images/bx_loader.gif" alt="loding" />
                 </div>
                 <div class="decoration">
                 </div>
@@ -192,12 +190,10 @@
                     <img src="images/bx_loader.gif" alt="loding" style="display: inline;" />
                 </div>
             </div>
-            <!--<div class="cuadro-internet-connection">
-            <div id="div-internet-connection" class="circulo-internet-connection">
+            <div class="cuadro-internet-connection">
+                <div id="div-internet-connection" class="circulo-internet-connection"></div>
+                <label style="padding-left: 12px;" id="label-internet-connection">Online</label>
             </div>
-            <label style="padding-left: 12px;" id="label-internet-connection">
-                Online</label>
-        </div>-->
         </div>
     </div>
     </div>

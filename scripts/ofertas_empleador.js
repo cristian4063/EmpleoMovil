@@ -18,6 +18,7 @@ function cargarVacantesEmpleador() {
     var estadoHtml = "";
     var estado = "";
     var textoEstado = "";
+    var textoStatus = "";
 
     var ofertas = $("#ofertas");
     ofertas.empty();
@@ -37,11 +38,13 @@ function cargarVacantesEmpleador() {
                     estado = "I";
                     estadoHtml = 'cambiarEstadoVacante('+val['ID']+',\'' + estado + '\')';
                     textoEstado = "Desactivar";
+                    textoStatus = "Vacante activa";
                 }
                 else {
                     estado = "A";
                     estadoHtml = 'cambiarEstadoVacante('+val['ID']+',\'' + estado + '\')';
                     textoEstado = "Activar";
+                    textoStatus = "Vacante inactiva";
                 }
 
                 n = val['Fecha_vencimiento'].indexOf('T');
@@ -81,6 +84,8 @@ function cargarVacantesEmpleador() {
                                         'Municipio: <b>' + val['MunicipioNombre'] + '</b></label>' +
                                     '<label>' +
                                         'Fecha Vencimiento: <b>' + val['Fecha_vencimiento'].substring(0, n) + '</b></label>' +
+                                    '<label>' +
+                                        'Estado: <b>' + textoStatus + '</b></label>' +
 
                                 '</p>' +
                                 '<div class="toggle-content" style="padding-bottom: 5px;">' +
@@ -121,7 +126,7 @@ function cargarVacantesEmpleador() {
                                     '</div>' +
                                     '<div class="one-half-responsive">' +
                                         '<div style="text-align: center; width: 30%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="cargarDatosVacante('+val['ID']+')">Editar</a></div>' +
-                                        '<div style="text-align: center; width: 34%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick=\"' + estadoHtml + '\">'+ textoEstado +'</a></div>' +
+                                        '<div style="text-align: center; width: 35%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick=\"' + estadoHtml + '\">'+ textoEstado +'</a></div>' +
                                         '<div style="text-align: center; width: 35%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="eliminarVacante('+val['ID']+')">Eliminar</a></div>' +
                                     '</div>'+
                                 '</div>' +
