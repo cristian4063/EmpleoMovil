@@ -36,7 +36,7 @@ function cargarVacantesEmpleador() {
                 if(val['Estado'] === "A") {
                     estado = "I";
                     estadoHtml = 'cambiarEstadoVacante('+val['ID']+',\'' + estado + '\')';
-                    textoEstado = "Inactivar";
+                    textoEstado = "Desactivar";
                 }
                 else {
                     estado = "A";
