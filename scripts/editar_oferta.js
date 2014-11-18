@@ -65,7 +65,6 @@ function AddRestrictedDays(arg) {
     //var d = $('#txtfechaPublicacion').datepicker('getDate');
     var d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + arg);
     return d;
-    alert(d);
 }
 
 function crearMapa() {
@@ -219,7 +218,7 @@ function editar()
         $("#detalleMuni").text(municipioTexto);
         $("#detalleCorreo").text(correo);
         $("#detalleTelefono").text(telefono);
-        $("#detalleFechaPublicacion").text(new Date());
+        $("#detalleFechaPublicacion").text(getEndDate(new Date()));
         $("#detalleFechaVencimiento").text(fechaVencimiento);
 
         $("#formularioVacante").css("display", "none");

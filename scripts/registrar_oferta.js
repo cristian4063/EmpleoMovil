@@ -162,7 +162,7 @@ function guardar()
         $("#detalleMuni").text(municipioTexto);
         $("#detalleCorreo").text(correo);
         $("#detalleTelefono").text(telefono);
-        $("#detalleFechaPublicacion").text(new Date());
+        $("#detalleFechaPublicacion").text(getEndDate(new Date()));
         $("#detalleFechaVencimiento").text(fechaVencimiento);
 
         $("#formularioVacante").css("display", "none");
@@ -231,4 +231,23 @@ function regresar()
 
 function gestionarVacantes() {
     document.location.href="lista_ofertas_empleador.html";
+}
+
+function getEndDate(fecha) {
+    var today = new Date(fecha);
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if(dd < 10) {
+        dd = '0' + dd;
+    } 
+
+    if(mm < 10) {
+        mm = '0' + mm
+    } 
+
+    today = mm + '/' + dd + '/' + yyyy;
+
+    return today;
 }
