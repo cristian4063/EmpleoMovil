@@ -34,15 +34,15 @@ function cargarVacantesEmpleador() {
         success: function (data, textStatus, xhr) {
             $.each(data, function (i, val) {
 
-                if(val['Estado'] === "A") {
+                if (val['Estado'] === "A") {
                     estado = "I";
-                    estadoHtml = 'cambiarEstadoVacante('+val['ID']+',\'' + estado + '\')';
+                    estadoHtml = 'cambiarEstadoVacante(' + val['ID'] + ',\'' + estado + '\')';
                     textoEstado = "Desactivar";
                     textoStatus = "Vacante activa";
                 }
                 else {
                     estado = "A";
-                    estadoHtml = 'cambiarEstadoVacante('+val['ID']+',\'' + estado + '\')';
+                    estadoHtml = 'cambiarEstadoVacante(' + val['ID'] + ',\'' + estado + '\')';
                     textoEstado = "Activar";
                     textoStatus = "Vacante inactiva";
                 }
@@ -52,15 +52,21 @@ function cargarVacantesEmpleador() {
                         '<div class="toggle-2">' +
                             '<a href="#" class="deploy-toggle-2 toggle-2-active" style="font-weight: normal; font-size: 15px; color: black;">' +
                             val['Titulo'] + '<label style="font-weight: bolder; font-size: 13px; color: black;">';
-                        if (val['DiasVence'] < 0)
-                            texto += 'VENCIDA</label>';
-                        else if (val['DiasVence'] == 0)
-                                texto += 'Vence HOY</label>';
-                        else if (val['DiasVence'] == 1)
-                                texto += 'Vence MAÑANA</label>';
-                            else
-                                texto += 'Vence en ' + val['DiasVence'] + ' días</label>';
-                            texto += '</a>' +
+                if (val['Estado'] === "A") {
+                    texto += "Activa - ";
+                }
+                else {
+                    texto += "Inactiva - ";
+                }
+                if (val['DiasVence'] < 0)
+                    texto += 'VENCIDA</label>';
+                else if (val['DiasVence'] == 0)
+                    texto += 'Vence HOY</label>';
+                else if (val['DiasVence'] == 1)
+                    texto += 'Vence MAÑANA</label>';
+                else
+                    texto += 'Vence en ' + val['DiasVence'] + ' días</label>';
+                texto += '</a>' +
                             '<div class="toggle-content">' +
                                 '<p style="text-align:justify;">' +
                                     '<label style="padding-bottom:10px;">' +
@@ -125,10 +131,10 @@ function cargarVacantesEmpleador() {
                                         '</div>' +
                                     '</div>' +
                                     '<div class="one-half-responsive">' +
-                                        '<div style="text-align: center; width: 30%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="cargarDatosVacante('+val['ID']+')">Editar</a></div>' +
-                                        '<div style="text-align: center; width: 35%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick=\"' + estadoHtml + '\">'+ textoEstado +'</a></div>' +
-                                        '<div style="text-align: center; width: 35%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="eliminarVacante('+val['ID']+')">Eliminar</a></div>' +
-                                    '</div>'+
+                                        '<div style="text-align: center; width: 30%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="cargarDatosVacante(' + val['ID'] + ')">Editar</a></div>' +
+                                        '<div style="text-align: center; width: 35%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick=\"' + estadoHtml + '\">' + textoEstado + '</a></div>' +
+                                        '<div style="text-align: center; width: 35%; float: left;margin-top: 5px;"><a class="button-icon icon-setting button-red" onclick="eliminarVacante(' + val['ID'] + ')">Eliminar</a></div>' +
+                                    '</div>' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
@@ -136,7 +142,7 @@ function cargarVacantesEmpleador() {
             });
             $("#ofertas").html(texto);
 
-            $('.deploy-toggle-2').click(function(){
+            $('.deploy-toggle-2').click(function () {
                 $(this).parent().find('.toggle-content').toggle(100);
                 $(this).toggleClass('toggle-2-active');
                 return false;
