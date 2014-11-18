@@ -30,7 +30,7 @@ $(document).ready(function () {
     $("#txtProfesion").val(localStorage.getItem('profesion'));
     $("#departamento").val(localStorage.getItem('departamento'));
     $("#municipio").val(localStorage.getItem('municipio'));
-    $("#txtfechaPublicacion").val(getEndDate(localStorage.getItem('fechaPublicacion')));
+    //$("#txtfechaPublicacion").val(getEndDate(localStorage.getItem('fechaPublicacion')));
     $("#txtfechaVencimiento").val(getEndDate(localStorage.getItem('fechaVencimiento')));
     $("#txtDireccion").val(localStorage.getItem('direccion'));
     $("#txtCorreo").val(localStorage.getItem('correo'));
@@ -186,10 +186,10 @@ function editar()
     var indicativo = $("#selectIndicativo").val();
     var telefono = $("#txtTelefono").val();
     var celular = $("#txtCelular").val();
-    var fechaPublicacion = $("#txtfechaPublicacion").val();
+    //var fechaPublicacion = $("#txtfechaPublicacion").val();
     var fechaVencimiento = $("#txtfechaVencimiento").val();
 
-    if(id && titulo && tipo && descripcion && cargo && departamento != null && municipio != null && correo && telefono && fechaPublicacion && fechaVencimiento) {
+    if(id && titulo && tipo && descripcion && cargo && departamento != null && municipio != null && correo && telefono && fechaVencimiento) {
 
         localStorage.setItem('id', id);
         localStorage.setItem('titulo', titulo);
@@ -208,7 +208,7 @@ function editar()
         localStorage.setItem('indicativo', indicativo);
         localStorage.setItem('telefono', telefono);
         localStorage.setItem('celular', celular);
-        localStorage.setItem('fechaPublicacion', fechaPublicacion);
+        //localStorage.setItem('fechaPublicacion', fechaPublicacion);
         localStorage.setItem('fechaVencimiento', fechaVencimiento);
 
         $("#detalleTitulo").text(titulo);
@@ -234,8 +234,6 @@ function modificarVacante() {
 
     MostrarDivCargando();
 
-    alert(localStorage.getItem('fechaPublicacion'));
-
     var vacante = new Object();
     vacante.ID = localStorage.getItem('id');
     vacante.Titulo = localStorage.getItem('titulo');
@@ -249,8 +247,8 @@ function modificarVacante() {
     vacante.Profesion = localStorage.getItem('profesion');
     vacante.Municipio = localStorage.getItem('municipio');
     vacante.Departamento = localStorage.getItem('departamento');
-    vacante.Fecha_publicacion = localStorage.getItem('fechaPublicacion');
-    vacante.Fecha_vencimiento = localStorage.getItem('fechaVencimiento');
+    //vacante.Fecha_publicacion = localStorage.getItem('fechaPublicacion');
+    vacante.Fecha_vencimiento = localStorage.getItem('fechaVencimiento') + " 23:59:59";
     vacante.Direccion = localStorage.getItem('direccion');
     vacante.Email = localStorage.getItem('correo');
     vacante.Indicativo = localStorage.getItem('indicativo');

@@ -30,15 +30,17 @@ $(function() {
         }
     });
     $( "#txtfechaVencimiento" ).datepicker({
-        disabled: true,
+        //disabled: true,
+        minDate: new Date(),
         onClose: function( selectedDate ) {
-            $( "#txtfechaPublicacion" ).datepicker( "option", "maxDate", selectedDate );
+            $( "#txtfechaPublicacion" ).datepicker( "option", "maxDate", AddRestrictedDays(15) );
         }
     });
 });
 
 function AddRestrictedDays(arg) {
-    var d = $('#txtfechaPublicacion').datepicker('getDate');
+    var d = new Date();
+    //var d = $('#txtfechaPublicacion').datepicker('getDate');
     var d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + arg);
     return d;
 }
@@ -130,10 +132,10 @@ function guardar()
     var indicativo = $("#selectIndicativo").val();
     var telefono = $("#txtTelefono").val();
     var celular = $("#txtCelular").val();
-    var fechaPublicacion = $("#txtfechaPublicacion").val();
+    //var fechaPublicacion = $("#txtfechaPublicacion").val();
     var fechaVencimiento = $("#txtfechaVencimiento").val();
 
-    if(titulo && tipo && descripcion && cargo && departamento != null && municipio != null && correo && telefono && fechaPublicacion && fechaVencimiento) {
+    if(titulo && tipo && descripcion && cargo && departamento != null && municipio != null && correo && telefono && fechaVencimiento) {
 
         localStorage.setItem('titulo', titulo);
         localStorage.setItem('tipo', tipo);
@@ -151,7 +153,7 @@ function guardar()
         localStorage.setItem('indicativo', indicativo);
         localStorage.setItem('telefono', telefono);
         localStorage.setItem('celular', celular);
-        localStorage.setItem('fechaPublicacion', fechaPublicacion);
+        //localStorage.setItem('fechaPublicacion', fechaPublicacion);
         localStorage.setItem('fechaVencimiento', fechaVencimiento);
 
         $("#detalleTitulo").text(titulo);
@@ -190,8 +192,8 @@ function agregarVacante() {
     vacante.Profesion = localStorage.getItem('profesion');
     vacante.Municipio = localStorage.getItem('municipio');
     vacante.Departamento = localStorage.getItem('departamento');
-    vacante.Fecha_publicacion = localStorage.getItem('fechaPublicacion');
-    vacante.Fecha_vencimiento = localStorage.getItem('fechaVencimiento');
+    //vacante.Fecha_publicacion = localStorage.getItem('fechaPublicacion');
+    vacante.Fecha_vencimiento = localStorage.getItem('fechaVencimiento') + " 23:59:59";
     vacante.Direccion = localStorage.getItem('direccion');
     vacante.Email = localStorage.getItem('correo');
     vacante.Indicativo = localStorage.getItem('indicativo');
