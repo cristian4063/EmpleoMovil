@@ -21,20 +21,17 @@ $(document).ready(function () {
 });
 
 $(function() {
-    $( "#txtfechaPublicacion" ).datepicker({
+    /*$( "#txtfechaPublicacion" ).datepicker({
         minDate: new Date(),
         onClose: function( selectedDate ) {
             $( "#txtfechaVencimiento" ).datepicker( "option", "disabled", false );
             $( "#txtfechaVencimiento" ).datepicker( "option", "minDate", selectedDate );
             $( "#txtfechaVencimiento" ).datepicker( "option", "maxDate", AddRestrictedDays(15) );
         }
-    });
+    });*/
     $( "#txtfechaVencimiento" ).datepicker({
-        //disabled: true,
         minDate: new Date(),
-        onClose: function( selectedDate ) {
-            $( "#txtfechaPublicacion" ).datepicker( "option", "maxDate", AddRestrictedDays(15) );
-        }
+        maxDate: AddRestrictedDays(15)
     });
 });
 
@@ -132,7 +129,6 @@ function guardar()
     var indicativo = $("#selectIndicativo").val();
     var telefono = $("#txtTelefono").val();
     var celular = $("#txtCelular").val();
-    //var fechaPublicacion = $("#txtfechaPublicacion").val();
     var fechaVencimiento = $("#txtfechaVencimiento").val();
 
     if(titulo && tipo && descripcion && cargo && departamento != null && municipio != null && correo && telefono && fechaVencimiento) {
@@ -153,7 +149,6 @@ function guardar()
         localStorage.setItem('indicativo', indicativo);
         localStorage.setItem('telefono', telefono);
         localStorage.setItem('celular', celular);
-        //localStorage.setItem('fechaPublicacion', fechaPublicacion);
         localStorage.setItem('fechaVencimiento', fechaVencimiento);
 
         $("#detalleTitulo").text(titulo);
@@ -163,12 +158,12 @@ function guardar()
         $("#detalleSalario").text(salarioTexto);
         $("#detalleExperiencia").text(experienciaTexto);
         $("#detalleNivel").text(nivelTexto);
-        $("#detalleProfesion").text(profesion);
         $("#detalleDepto").text(departamentoTexto);
         $("#detalleMuni").text(municipioTexto);
-        $("#detalleDireccion").text(direccion);
         $("#detalleCorreo").text(correo);
         $("#detalleTelefono").text(telefono);
+        $("#detalleFechaPublicacion").text(new Date());
+        $("#detalleFechaVencimiento").text(fechaVencimiento);
 
         $("#formularioVacante").css("display", "none");
         $("#detalleVacante").css("display", "block");
@@ -192,7 +187,6 @@ function agregarVacante() {
     vacante.Profesion = localStorage.getItem('profesion');
     vacante.Municipio = localStorage.getItem('municipio');
     vacante.Departamento = localStorage.getItem('departamento');
-    //vacante.Fecha_publicacion = localStorage.getItem('fechaPublicacion');
     vacante.Fecha_vencimiento = localStorage.getItem('fechaVencimiento') + " 23:59:59";
     vacante.Direccion = localStorage.getItem('direccion');
     vacante.Email = localStorage.getItem('correo');

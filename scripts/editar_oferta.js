@@ -30,7 +30,6 @@ $(document).ready(function () {
     $("#txtProfesion").val(localStorage.getItem('profesion'));
     $("#departamento").val(localStorage.getItem('departamento'));
     $("#municipio").val(localStorage.getItem('municipio'));
-    //$("#txtfechaPublicacion").val(getEndDate(localStorage.getItem('fechaPublicacion')));
     $("#txtfechaVencimiento").val(getEndDate(localStorage.getItem('fechaVencimiento')));
     $("#txtDireccion").val(localStorage.getItem('direccion'));
     $("#txtCorreo").val(localStorage.getItem('correo'));
@@ -47,26 +46,26 @@ $(document).ready(function () {
 });
 
 $(function() {
-    $( "#txtfechaPublicacion" ).datepicker({
+    /*$( "#txtfechaPublicacion" ).datepicker({
         minDate: new Date(),
         onClose: function( selectedDate ) {
             $( "#txtfechaVencimiento" ).datepicker( "option", "disabled", false );
             $( "#txtfechaVencimiento" ).datepicker( "option", "minDate", selectedDate );
             $( "#txtfechaVencimiento" ).datepicker( "option", "maxDate", AddRestrictedDays(15) );
         }
-    });
+    });*/
     $( "#txtfechaVencimiento" ).datepicker({
-        disabled: true,
-        onClose: function( selectedDate ) {
-            $( "#txtfechaPublicacion" ).datepicker( "option", "maxDate", selectedDate );
-        }
+        minDate: new Date(),
+        maxDate: AddRestrictedDays(15)
     });
 });
 
 function AddRestrictedDays(arg) {
-    var d = $('#txtfechaPublicacion').datepicker('getDate');
+    var d = new Date();
+    //var d = $('#txtfechaPublicacion').datepicker('getDate');
     var d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + arg);
     return d;
+    alert(d);
 }
 
 function crearMapa() {
@@ -186,7 +185,6 @@ function editar()
     var indicativo = $("#selectIndicativo").val();
     var telefono = $("#txtTelefono").val();
     var celular = $("#txtCelular").val();
-    //var fechaPublicacion = $("#txtfechaPublicacion").val();
     var fechaVencimiento = $("#txtfechaVencimiento").val();
 
     if(id && titulo && tipo && descripcion && cargo && departamento != null && municipio != null && correo && telefono && fechaVencimiento) {
@@ -208,7 +206,6 @@ function editar()
         localStorage.setItem('indicativo', indicativo);
         localStorage.setItem('telefono', telefono);
         localStorage.setItem('celular', celular);
-        //localStorage.setItem('fechaPublicacion', fechaPublicacion);
         localStorage.setItem('fechaVencimiento', fechaVencimiento);
 
         $("#detalleTitulo").text(titulo);
@@ -218,12 +215,12 @@ function editar()
         $("#detalleSalario").text(salarioTexto);
         $("#detalleExperiencia").text(experienciaTexto);
         $("#detalleNivel").text(nivelTexto);
-        $("#detalleProfesion").text(profesion);
         $("#detalleDepto").text(departamentoTexto);
         $("#detalleMuni").text(municipioTexto);
-        $("#detalleDireccion").text(direccion);
         $("#detalleCorreo").text(correo);
         $("#detalleTelefono").text(telefono);
+        $("#detalleFechaPublicacion").text(new Date());
+        $("#detalleFechaVencimiento").text(fechaVencimiento);
 
         $("#formularioVacante").css("display", "none");
         $("#detalleVacante").css("display", "block");
@@ -247,7 +244,6 @@ function modificarVacante() {
     vacante.Profesion = localStorage.getItem('profesion');
     vacante.Municipio = localStorage.getItem('municipio');
     vacante.Departamento = localStorage.getItem('departamento');
-    //vacante.Fecha_publicacion = localStorage.getItem('fechaPublicacion');
     vacante.Fecha_vencimiento = localStorage.getItem('fechaVencimiento') + " 23:59:59";
     vacante.Direccion = localStorage.getItem('direccion');
     vacante.Email = localStorage.getItem('correo');

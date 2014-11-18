@@ -155,7 +155,11 @@ function abrirPaginaFacebook(nombre, id) {
     var title = 'Comparta esta vacante';
     var descr = 'Descripción de la vacante de prueba';
     var image = 'http://goo.gl/B8AWrE';
-    window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=auto,left=auto,toolbar=0,status=0,width=auto,height=auto');
+    //window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, "_blank", "closebuttoncaption=Regresar");
+    //window.open("http://www.facebook.com/share.php?u=https://www.facebook.com/unidadvictimas&title=Unidad", "_blank", "closebuttoncaption=Regresar");
+    window.open("https://www.facebook.com/share.php?u="+url+"", "_blank", "closebuttoncaption=Regresar");
+
+
 }
 
 function abrirPaginaTwitter(nombre, id) {

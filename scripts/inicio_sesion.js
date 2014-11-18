@@ -80,7 +80,7 @@ function abrirConfirmSesion(contenido){
             "Aceptar": function() {
                 $(this).dialog("close");
                 //OcultarDivCargando();
-                document.location.href="lista_ofertas_empleador.html";
+                document.location.href="RegistrarOferta.html";
             }
         }
     });
