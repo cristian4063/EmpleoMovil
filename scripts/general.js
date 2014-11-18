@@ -326,7 +326,7 @@ function Tamanio() {
 
 function validarInactividad() {
     if (localStorage.getItem("nombreUsuario")) {
-        $("#header").append('<a onclick="cerrar()" style="float:right;overflow:visible;padding-right:10px;"><img style="width:35px;margin-top:-30px;" src="images/icons/user/exit.png" alt="img"></a>');
+        $("#header").append('<a onclick="cerrar()" style="float:right;overflow:visible;padding-right:10px;"><img style="width:78px;margin-top:-30px;" src="images/icons/user/exit.png" alt="img"></a>');
         $("#opc_Sesion").css("display", "none");
         $('#menu_usuario_empleador').html("Bienvenid@ " + localStorage.getItem("nombreUsuario"));
 
