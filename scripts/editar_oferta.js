@@ -16,8 +16,7 @@ $(document).ready(function () {
 
     $("#txtfechaVencimiento").datepicker({ minDate: new Date() });
 
-    cargar_niveles();
-    cargarDepartamentos();
+    cargarDepartamentosCrud();
 
     $("#txtId").val(localStorage.getItem('id'));
     $("#txtTitulo").val(localStorage.getItem('titulo'));
@@ -29,8 +28,8 @@ $(document).ready(function () {
     $("#selectExperiencia").val(localStorage.getItem('experiencia'));
     $("#select_nivel").val(localStorage.getItem('nivel'));
     $("#txtProfesion").val(localStorage.getItem('profesion'));
-    $("#selectDepartamentos").val(localStorage.getItem('departamento'));
-    $("#selectMunicipios").val(localStorage.getItem('municipio'));
+    $("#departamento").val(localStorage.getItem('departamento'));
+    $("#municipio").val(localStorage.getItem('municipio'));
     $("#txtfechaPublicacion").val(getEndDate(localStorage.getItem('fechaPublicacion')));
     $("#txtfechaVencimiento").val(getEndDate(localStorage.getItem('fechaVencimiento')));
     $("#txtDireccion").val(localStorage.getItem('direccion'));
@@ -234,6 +233,8 @@ function editar()
 function modificarVacante() {
 
     MostrarDivCargando();
+
+    alert(localStorage.getItem('fechaPublicacion'));
 
     var vacante = new Object();
     vacante.ID = localStorage.getItem('id');

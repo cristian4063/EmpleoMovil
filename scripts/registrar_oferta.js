@@ -17,8 +17,7 @@ $(document).ready(function () {
     localStorage.setItem('latitud', 0);
     localStorage.setItem('longitud', 0);
 
-    cargar_niveles();
-    cargarDepartamentos();
+    cargarDepartamentosCrud();
 });
 
 $(function() {
