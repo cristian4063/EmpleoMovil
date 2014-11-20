@@ -333,6 +333,7 @@ function validarInactividad() {
         $("#header").append('<a onclick="cerrar()" style="float:right;overflow:visible;padding-right:10px;"><img style="width:35px;margin-top:-30px;" src="images/icons/user/exit.png" alt="img"></a>');
         $("#opc_Sesion").css("display", "none");
 //        $('#menu_usuario_empleador').html("Bienvenid@ " + localStorage.getItem("nombreUsuario"));
+        $("#sesion").html("<h4>Se encuentra logueado como " + localStorage.getItem("nombreUsuario") + "</h4>");
 
         $("#menuEmpleador").addClass("dropdown-nav-inactive");
         $("#subMenuEmpleador").css("display", "block");

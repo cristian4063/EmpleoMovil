@@ -14,8 +14,6 @@ $(document).ready(function () {
         $("#div-internet-connection").css("background-color", "#ec8787");
     }
 
-    $("#txtfechaVencimiento").datepicker({ minDate: new Date() });
-
     cargarDepartamentosCrud();
 
     $("#txtId").val(localStorage.getItem('id'));
