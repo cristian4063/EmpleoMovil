@@ -164,7 +164,6 @@ function abrirPaginaFacebook(nombre, id) {
 
 function abrirPaginaTwitter(nombre, id) {
     var url = 'http://empleomovil.apphb.com/Vacantes/Details/' + id;
-    url = "http://google.com"
     window.open("https://twitter.com/intent/tweet?url=" + url + "&text=Oportunidad de empleo: " + nombre, "_blank", "closebuttoncaption=Regresar");
 }
 
