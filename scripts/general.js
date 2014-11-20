@@ -164,6 +164,7 @@ function abrirPaginaFacebook(nombre, id) {
 
 function abrirPaginaTwitter(nombre, id) {
     var url = 'http://empleomovil.apphb.com/Vacantes/Details/' + id;
+    url = "http://google.com"
     window.open("https://twitter.com/intent/tweet?url=" + url + "&text=Oportunidad de empleo: " + nombre, "_blank", "closebuttoncaption=Regresar");
 }
 
@@ -332,7 +333,7 @@ function validarInactividad() {
     if (localStorage.getItem("nombreUsuario")) {
         $("#header").append('<a onclick="cerrar()" style="float:right;overflow:visible;padding-right:10px;"><img style="width:35px;margin-top:-30px;" src="images/icons/user/exit.png" alt="img"></a>');
         $("#opc_Sesion").css("display", "none");
-        $('#menu_usuario_empleador').html("Bienvenid@ " + localStorage.getItem("nombreUsuario"));
+//        $('#menu_usuario_empleador').html("Bienvenid@ " + localStorage.getItem("nombreUsuario"));
 
         $("#menuEmpleador").addClass("dropdown-nav-inactive");
         $("#subMenuEmpleador").css("display", "block");
