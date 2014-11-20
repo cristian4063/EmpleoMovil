@@ -1,8 +1,15 @@
 $(document).ready(function () {
     $("#div_sin_favoritas").hide();
     if (doesConnectionExist()) {
+
+        $("#label-internet-connection").text("Online");
+        $("#div-internet-connection").css("background-color", "#80d580");
+
         ActualizarFavoritas();
     } else {
+        $("#label-internet-connection").text("Offline");
+        $("#div-internet-connection").css("background-color", "#ec8787");
+        
         consultarVacante();
     }
 });

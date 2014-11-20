@@ -44,14 +44,6 @@ $(document).ready(function () {
 });
 
 $(function() {
-    /*$( "#txtfechaPublicacion" ).datepicker({
-        minDate: new Date(),
-        onClose: function( selectedDate ) {
-            $( "#txtfechaVencimiento" ).datepicker( "option", "disabled", false );
-            $( "#txtfechaVencimiento" ).datepicker( "option", "minDate", selectedDate );
-            $( "#txtfechaVencimiento" ).datepicker( "option", "maxDate", AddRestrictedDays(15) );
-        }
-    });*/
     $( "#txtfechaVencimiento" ).datepicker({
         minDate: new Date(),
         maxDate: AddRestrictedDays(15)
@@ -60,7 +52,6 @@ $(function() {
 
 function AddRestrictedDays(arg) {
     var d = new Date();
-    //var d = $('#txtfechaPublicacion').datepicker('getDate');
     var d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + arg);
     return d;
 }
@@ -205,19 +196,19 @@ function editar()
         localStorage.setItem('celular', celular);
         localStorage.setItem('fechaVencimiento', fechaVencimiento);
 
-        $("#detalleTitulo").text(titulo);
-        $("#detalleDesc").text(descripcion);
-        $("#detalleNumVacantes").text(numVacantes);
-        $("#detalleCargo").text(cargo);
-        $("#detalleSalario").text(salarioTexto);
-        $("#detalleExperiencia").text(experienciaTexto);
-        $("#detalleNivel").text(nivelTexto);
-        $("#detalleDepto").text(departamentoTexto);
-        $("#detalleMuni").text(municipioTexto);
-        $("#detalleCorreo").text(correo);
-        $("#detalleTelefono").text(telefono);
-        $("#detalleFechaPublicacion").text(getEndDate(new Date()));
-        $("#detalleFechaVencimiento").text(fechaVencimiento);
+        $("#detalleTitulo").text("Título:  " + titulo);
+        $("#detalleDesc").text("Descripción:  " + descripcion);
+        $("#detalleNumVacantes").text("Número de vacantes  " + numVacantes);
+        $("#detalleCargo").text("Cargo:  " + cargo);
+        $("#detalleSalario").text("Salario:  " + salarioTexto);
+        $("#detalleExperiencia").text("Experiencia:  " + experienciaTexto);
+        $("#detalleNivel").text("Nivel:  " + nivelTexto);
+        $("#detalleDepto").text("Deparatamento:  " + departamentoTexto);
+        $("#detalleMuni").text("Municipio:  " + municipioTexto);
+        $("#detalleCorreo").text("Correo:  " + correo);
+        $("#detalleTelefono").text("Teléfono:  " + telefono);
+        $("#detalleFechaPublicacion").text("Fecha publicación:  " + getEndDate(new Date()));
+        $("#detalleFechaVencimiento").text("Fecha vencimiento:  " + fechaVencimiento);
 
         $("#formularioVacante").css("display", "none");
         $("#detalleVacante").css("display", "block");

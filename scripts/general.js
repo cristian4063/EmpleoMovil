@@ -2,13 +2,13 @@ $(document).ready(function () {
     if (!doesConnectionExist()) {
         location.href = "vacantes_favoritas.html";
     }
-    if (doesConnectionExist()) {
+    /*if (doesConnectionExist()) {
         $("#label-internet-connection").text("Online");
         $("#div-internet-connection").css("background-color", "#80d580");
     } else {
         $("#label-internet-connection").text("Offline");
         $("#div-internet-connection").css("background-color", "#ec8787");
-    }
+    }*/
     var height = window.innerHeight;
     height_fin = height + "px";
     $('#content').css('min-height', height_fin);

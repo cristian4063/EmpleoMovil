@@ -71,7 +71,7 @@
     <div id="preloader">
         <div id="status">
             <p class="center-text">
-                Loading the content... <em>Loading depends on your connection speed!</em>
+                Cargando contenido... <em>La carga depende de su conexión a internet.</em>
             </p>
         </div>
     </div>
@@ -201,7 +201,7 @@
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Título (*): <span>(requerido)</span></label>
-                                    <input type="text" name="txtTitulo" value="" class="contactField requiredField" id="txtTitulo" maxlength="250" />
+                                    <input type="text" name="txtTitulo" value="" class="contactField requiredField" id="txtTitulo" maxlength="250" placeholder="Niñera/ cuidado menor..." />
                                 </div>
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
@@ -222,7 +222,7 @@
                                 <div class="formTextareaWrap">
                                     <label class="field-title contactMessageTextarea" for="contactMessageTextarea">
                                         Descripción (*): <span>(requerido)</span></label>
-                                    <textarea name="txtDescripcion" class="contactTextarea requiredField" id="txtDescripcion" maxlength="1000"></textarea>
+                                    <textarea name="txtDescripcion" class="contactTextarea requiredField" id="txtDescripcion" maxlength="1000" placeholder="Se requiere joven estudiante o reciente egresada, entre los 18 y 25 años..."></textarea>
                                 </div>
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
@@ -244,7 +244,7 @@
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Cargo (*): <span>(requerido)</span></label>
-                                    <input type="text" name="txtCargo" value="" class="contactField requiredField" id="txtCargo" />
+                                    <input type="text" name="txtCargo" value="" class="contactField requiredField" id="txtCargo" placeholder="Niñera" />
                                 </div>
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
@@ -295,7 +295,7 @@
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Profesión:
                                     </label>
-                                    <input type="text" name="txtProfesion" value="" class="contactField" id="txtProfesion" />
+                                    <input type="text" name="txtProfesion" value="" class="contactField" id="txtProfesion" placeholder="Ingeniero, Agronomo..." />
                                 </div>
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
@@ -319,7 +319,7 @@
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Dirección de referencia:
                                     </label>
-                                    <input type="text" name="txtDireccion" value="" class="contactField" id="txtDireccion" />
+                                    <input type="text" name="txtDireccion" value="" class="contactField" id="txtDireccion" placeholder="Cra 38 # 54A-45..."/>
                                 </div>
                                 <div class="formValidationError" id="txtCorreoError">
                                     <div class="static-notification-red">
@@ -337,7 +337,7 @@
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Correo electrónico de contacto (*): <span>(requerido)</span></label>
                                     <input type="text" name="txtCorreo" value="" class="contactField requiredField requiredEmailField"
-                                        id="txtCorreo" />
+                                        id="txtCorreo" placeholder="yobuscotrabajador@colombia.com" />
                                 </div>
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
@@ -362,27 +362,15 @@
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Teléfono de contacto (*): <span>(requerido)</span></label>
                                     <input type="number" name="txtTelefono" value="" class="contactField requiredField"
-                                        id="txtTelefono" />
+                                        id="txtTelefono" placeholder="031 283 4567"/>
                                 </div>
                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Celular:
                                     </label>
                                     <input type="number" name="txtCelular" value="" class="contactField requiredField"
-                                        id="txtCelular" />
+                                        id="txtCelular" placeholder="300 000 00 00" />
                                 </div>
-                                <!--<div class="formValidationError" id="txtfechaVencimientoError">
-                                    <div class="static-notification-red">
-                                        <p class="center-text uppercase">
-                                            La fecha de publicación es requerida!</p>
-                                    </div>
-                                </div>
-                                <div class="formFieldWrap">
-                                    <label class="field-title contactNameField" for="contactNameField">
-                                        Fecha de publicación (*): <span>(requerido)</span></label>
-                                    <input type="text" name="txtfechaPublicacion" value="" type="date" class="contactField requiredField"
-                                        id="txtfechaPublicacion" />
-                                </div>-->
                                 <div class="formValidationError" id="txtfechaVencimientoError">
                                     <div class="static-notification-red">
                                         <p class="center-text uppercase">
@@ -393,7 +381,7 @@
                                     <label class="field-title contactNameField" for="contactNameField">
                                         Fecha de vencimiento (*): <span>(requerido)</span></label>
                                     <input type="text" name="txtfechaVencimiento" value="" type="date" class="contactField requiredField"
-                                        id="txtfechaVencimiento" />
+                                        id="txtfechaVencimiento" placeholder="11/19/2014"/>
                                 </div>
                                 <div class="container">
                                     <div class="toggle-1">
@@ -426,94 +414,55 @@
                             <form class="contactForm">
                             <fieldset>
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Título:</label>
-                                    <label class="letter" id="detalleTitulo">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Descripción:</label>
-                                    <label class="letter" id="detalleDesc">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleDesc"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Número de vacantes:</label>
-                                    <label class="letter" id="detalleNumVacantes">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleNumVacantes"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Cargo:</label>
-                                    <label class="letter" id="detalleCargo">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleCargo"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Salario:</label>
-                                    <label class="letter" id="detalleSalario">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleSalario"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Experiencia:</label>
-                                    <label class="letter" id="detalleExperiencia">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleExperiencia"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Nivel:</label>
-                                    <label class="letter" id="detalleNivel">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleNivel"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Departamento:</label>
-                                    <label class="letter" id="detalleDepto">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleDepto"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Municipio:</label>
-                                    <label class="letter" id="detalleMuni">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleMuni"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Correo:</label>
-                                    <label class="letter" id="detalleCorreo">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleCorreo"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Teléfono:</label>
-                                    <label class="letter" id="detalleTelefono">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleTelefono"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Fecha Publicación:</label>
-                                    <label class="letter" id="detalleFechaPublicacion">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleFechaPublicacion"></label>
                                 </div>
                                 <br />
                                 <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea">
-                                        Fecha Vencimiento:</label>
-                                    <label class="letter" id="detalleFechaVencimiento">
-                                    </label>
+                                    <label class="field-title contactMessageTextarea letter" for="contactMessageTextarea" id="detalleFechaVencimiento"></label>
                                 </div>
                                 <br />
                                 <div class="formSubmitButtonErrorsWrap">
@@ -554,10 +503,10 @@
                     <img src="images/bx_loader.gif" alt="loding" style="display: inline;" />
                 </div>
             </div>
-            <div class="cuadro-internet-connection">
+            <!--<div class="cuadro-internet-connection">
                 <div id="div-internet-connection" class="circulo-internet-connection"></div>
                 <label style="padding-left: 12px;" id="label-internet-connection">Online</label>
-            </div>
+            </div>-->
         </div>
     </div>
     </div>
