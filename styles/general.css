@@ -156,3 +156,29 @@ li
     margin-bottom: 0;
     padding-bottom: 20px;
 }
+
+/*--------------------Estilos alerta---------------------*/
+/*.ui-widget-header {
+    border: 1px solid #58595b !important;
+    background-color: #58595b !important;
+    background: #58595b !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane button{
+    background:#58595B !important;
+    border: 1px solid #58595b !important;
+    color: white;
+}*/
+
+.ui-icon-closethick {
+    background-image: url('../images/ui/close.png') !important;
+    background-position: 25% 20%;;
+}
+
+.ui-icon-circle-triangle-e {
+    background-image: url('../images/ui/next-arrow.png') !important;
+}
+
+.ui-icon-circle-triangle-w {
+    background-image: url('../images/ui/previous-arrow.png') !important;
+}

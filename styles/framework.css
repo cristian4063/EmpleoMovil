@@ -1282,6 +1282,7 @@ table tr:hover td{
 .static-notification-red p{
 	margin-top:10px;
 	margin-bottom:10px;
+	padding: 9px 0;
 }
 
 .static-notification-green{

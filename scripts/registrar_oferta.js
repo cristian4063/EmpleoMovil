@@ -142,9 +142,9 @@ function guardar()
         localStorage.setItem('celular', celular);
         localStorage.setItem('fechaVencimiento', fechaVencimiento);
 
-        $("#detalleTitulo").text("Título:  " + titulo);
+        /*$("#detalleTitulo").text("Título:  " + titulo);
         $("#detalleDesc").text("Descripción:  " + descripcion);
-        $("#detalleNumVacantes").text("Número de vacantes  " + numVacantes);
+        $("#detalleNumVacantes").text("Número de vacantes:  " + numVacantes);
         $("#detalleCargo").text("Cargo:  " + cargo);
         $("#detalleSalario").text("Salario:  " + salarioTexto);
         $("#detalleExperiencia").text("Experiencia:  " + experienciaTexto);
@@ -154,7 +154,21 @@ function guardar()
         $("#detalleCorreo").text("Correo:  " + correo);
         $("#detalleTelefono").text("Teléfono:  " + telefono);
         $("#detalleFechaPublicacion").text("Fecha publicación:  " + getEndDate(new Date()));
-        $("#detalleFechaVencimiento").text("Fecha vencimiento:  " + fechaVencimiento);
+        $("#detalleFechaVencimiento").text("Fecha vencimiento:  " + fechaVencimiento);*/
+
+        $("#detalleTitulo").html("<strong>Título:  </strong>" + titulo);
+        $("#detalleDesc").html("<strong>Descripción:  </strong>" + descripcion);
+        $("#detalleNumVacantes").html("<strong>Número de vacantes:  </strong>" + numVacantes);
+        $("#detalleCargo").html("<strong>Cargo:  </strong>" + cargo);
+        $("#detalleSalario").html("<strong>Salario:  </strong>" + salarioTexto);
+        $("#detalleExperiencia").html("<strong>Experiencia:  </strong>" + experienciaTexto);
+        $("#detalleNivel").html("<strong>Nivel:  </strong>" + nivelTexto);
+        $("#detalleDepto").html("<strong>Deparatamento:  </strong>" + departamentoTexto);
+        $("#detalleMuni").html("<strong>Municipio:  </strong>" + municipioTexto);
+        $("#detalleCorreo").html("<strong>Correo:  </strong>" + correo);
+        $("#detalleTelefono").html("<strong>Teléfono:  </strong>" + telefono);
+        $("#detalleFechaPublicacion").html("<strong>Fecha publicación:  </strong>" + getEndDate(new Date()));
+        $("#detalleFechaVencimiento").html("<strong>Fecha vencimiento:  </strong>" + fechaVencimiento);
 
         $("#formularioVacante").css("display", "none");
         $("#detalleVacante").css("display", "block");
