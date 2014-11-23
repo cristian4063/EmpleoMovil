@@ -68,7 +68,7 @@ function abrirConfirmSesion(contenido){
         modal: true,
         draggable: false,
         resizable: false,
-        title: 'Advertencia',
+        title: 'Aviso',
         minWidth:ancho,
         my: "center",
         at: "center",
