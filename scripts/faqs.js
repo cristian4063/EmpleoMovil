@@ -6,6 +6,8 @@ var numero_items = 0;
 $(document).ready(function () {
     if (!doesConnectionExist()) {
         location.href = "vacantes_favoritas.html";
+    } else {
+        cargar_preguntas();
     }
     if (doesConnectionExist()) {
         $("#label-internet-connection").text("Online");
@@ -14,7 +16,7 @@ $(document).ready(function () {
         $("#label-internet-connection").text("Offline");
         $("#div-internet-connection").css("background-color", "#ec8787");
     }
-    cargar_preguntas();
+
 });
 
 function cargar_preguntas() {
@@ -37,7 +39,6 @@ function cargar_preguntas() {
             cont = 0;
 
             $.each(data, function (i, val) {
-                //alert(val['Titulo']);
                 texto += '<div class="todas ' + pagina + '"><div class="clear" style="height: 10px;">' +
                         '</div>' +
                         '<em class="speach-left-title">' +

@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    if (!doesConnectionExist()) {
-        location.href = "vacantes_favoritas.html";
-    }
     /*if (doesConnectionExist()) {
         $("#label-internet-connection").text("Online");
         $("#div-internet-connection").css("background-color", "#80d580");
@@ -235,7 +232,7 @@ function Denunciar(id) {
 
 function doesConnectionExist() {
     var xhr = new XMLHttpRequest();
-    var file = "http://lavanderialabruja.com/images/logo.png";  //  Cambiar despues por una imagen del proyecto
+    var file = "http://empleomovil.apphb.com/images/logo_odc.png";  //  Cambiar despues por una imagen del proyecto publicado en producción
     var randomNum = Math.round(Math.random() * 10000);
 
     xhr.open('HEAD', file + "?rand=" + randomNum, false);
