@@ -347,7 +347,7 @@ function validarSesion() {
         var today = new Date();
         var after = new Date(localStorage.getItem("tiempo"));
         var diffMs = (today - after);
-        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutos
+        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000);
 
         if (diffMins >= 15) { //Tiempo de inactividad 15 minutos
             abrirAlertSesion("Su sesi&oacuten se cerrar&aacute por inactividad");
