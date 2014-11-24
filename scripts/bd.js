@@ -72,9 +72,9 @@ function consultarVacante() {
                         '<div class="toggle-2">' +
                             '<a href="#" class="deploy-toggle-2 toggle-2" style="font-weight: normal; font-size: 15px; color: black;">' +
                                 results.rows.item(i).titulo + '<label style="font-weight: bolder; font-size: 13px; color: black;">';
-                if (results.rows.item(i).dias_vence == 0)
+                if (results.rows.item(i).dias_vence == 1)
                     texto += 'Vence HOY</label>';
-                else if (results.rows.item(i).dias_vence == 1)
+                else if (results.rows.item(i).dias_vence == 2)
                     texto += 'Vence MAÑANA</label>';
                 else
                     texto += 'Vence en ' + results.rows.item(i).dias_vence + ' días</label>';

@@ -128,9 +128,9 @@ function cargarOfertas(palabra) {
                         '<div class="toggle-2">' +
                             '<a href="#" class="deploy-toggle-2 toggle-2" style="font-weight: normal; font-size: 15px; color: black;">' +
                                 val['Titulo'] + '<label style="font-weight: bolder; font-size: 13px; color: black;">';
-                if (val['DiasVence'] == 0)
+                if (val['DiasVence'] == 1)
                     texto += 'Vence HOY</label>';
-                else if (val['DiasVence'] == 1)
+                else if (val['DiasVence'] == 2)
                     texto += 'Vence MAÑANA</label>';
                 else
                     texto += 'Vence en ' + val['DiasVence'] + ' días</label>';
@@ -278,9 +278,9 @@ function cargarVacante(vacanteID) {
                     '<div class="toggle-2">' +
                         '<a href="#" class="deploy-toggle-2 toggle-2-active" style="font-weight: normal; font-size: 15px; color: black;">' +
                             data['Titulo'] + '<label style="font-weight: bolder; font-size: 13px; color: black;">';
-            if (data['DiasVence'] == 0)
+            if (data['DiasVence'] == 1)
                 texto += 'Vence HOY</label>';
-            else if (data['DiasVence'] == 1)
+            else if (data['DiasVence'] == 2)
                 texto += 'Vence MAÑANA</label>';
             else
                 texto += 'Vence en ' + data['DiasVence'] + ' días</label>';

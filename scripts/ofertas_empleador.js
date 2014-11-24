@@ -58,11 +58,11 @@ function cargarVacantesEmpleador() {
                 else {
                     texto += "Inactiva - ";
                 }
-                if (val['DiasVence'] < 0)
+                if (val['DiasVence'] < 1)
                     texto += 'VENCIDA</label>';
-                else if (val['DiasVence'] == 0)
-                    texto += 'Vence HOY</label>';
                 else if (val['DiasVence'] == 1)
+                    texto += 'Vence HOY</label>';
+                else if (val['DiasVence'] == 2)
                     texto += 'Vence MAÑANA</label>';
                 else
                     texto += 'Vence en ' + val['DiasVence'] + ' días</label>';
