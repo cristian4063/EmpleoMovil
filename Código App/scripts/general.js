@@ -164,6 +164,14 @@ function abrirPaginaTwitter(nombre, id) {
     window.open("https://twitter.com/intent/tweet?url=" + url + "&text=Oportunidad de empleo: " + nombre, "_blank", "closebuttoncaption=Regresar");
 }
 
+function abrirFacebookGeneral() {
+    window.open("https://www.facebook.com/SPEColombia?fref=ts", "_blank", "closebuttoncaption=Regresar");
+}
+
+function abrirTwitterGeneral() {
+    window.open("https://twitter.com/ServiciodEmpleo", "_blank", "closebuttoncaption=Regresar");
+}
+
 function abrirPrimerAlert(contenido) {
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();

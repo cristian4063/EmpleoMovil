@@ -158,13 +158,14 @@ li
 }
 
 /*--------------------Estilos alerta---------------------*/
-/*.ui-widget-header {
-    border: 1px solid #58595b !important;
+.ui-widget-header > button{
+    /*border: 1px solid #58595b !important;
     background-color: #58595b !important;
-    background: #58595b !important;
+    background: #58595b !important;*/
+    display: none;
 }
 
-.ui-dialog .ui-dialog-buttonpane button{
+/*.ui-dialog .ui-dialog-buttonpane button{
     background:#58595B !important;
     border: 1px solid #58595b !important;
     color: white;
